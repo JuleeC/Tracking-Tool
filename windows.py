@@ -1,6 +1,11 @@
 import customtkinter as ctk
 from settings import *
 import webbrowser
+#WIDGETS IMPORTEN
+from File_Manager_Widget import File_Manager
+from Settings_Manager_Widget import Settings_Manager
+from Chart_Widget import Chart
+from Calculator_Widget import Calculator
 
 
 
@@ -46,20 +51,33 @@ class Login_Window(ctk.CTkFrame):
 
 class Tracking_Window_Tabs(ctk.CTkFrame):
     def __init__(self,parent=None,controller =None):
-        super().__init__(master=parent,bg_color="blue")
+        super().__init__(master=parent)
         self.controller = controller
         self.pack(expand=True,fill="both")
         
     
-        self.rowconfigure((0,1),weight=1,uniform="a")
-        self.rowconfigure(2,weight=10,uniform="a")
+        self.rowconfigure(0,weight=15,uniform="a")
+        self.rowconfigure(1,weight=10,uniform="a")
+        self.rowconfigure(2,weight=100,uniform="a")
         self.columnconfigure(0,weight=15,uniform="b")
         self.columnconfigure(1,weight=30,uniform="b")
         self.columnconfigure(2,weight=100,uniform="b")
         self.columnconfigure(3,weight=35,uniform="b")
 
+        ctk.CTkButton(self,fg_color= BLUE_UI["dark_blue"],corner_radius=5,command=self.go_login_window).grid(row=0,column=0,sticky="nsew")
+
+        File_Manager(self,
+                     fg_color=BLUE_UI["dark_blue"]
+                    )
+        Settings_Manager(self,
+                         fg_color=BLUE_UI["dark_blue"])
+    
+        Chart(self,
+              fg_color=BLUE_UI["dark_blue"])
+        
+        Calculator(self,
+              fg_color=BLUE_UI["dark_blue"])
         #EXAMPLE
-        # ctk.CTkButton(self,fg_color= "red",corner_radius=5,command=self.go_login_window).grid(row=0,column=0,sticky="nsew")
         # ctk.CTkFrame(self,fg_color= "red").grid(row=0,column=1,sticky="nsew",columnspan=3,padx=30)
         # ctk.CTkFrame(self,fg_color="green").grid(row=2,column=0,sticky="nsew",pady=10,padx=10)
         # ctk.CTkFrame(self,fg_color="blue").grid(row=2,column=1,sticky="nsew",pady=10,padx=10)
