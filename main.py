@@ -1,9 +1,9 @@
 import customtkinter as ctk
 import darkdetect
-from login_window import *
 
-
+from login_window import Login_Window
 from settings import *
+
 
 class Main(ctk.CTk):
     def __init__(self,is_dark):

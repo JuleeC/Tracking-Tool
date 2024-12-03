@@ -1,8 +1,9 @@
 import customtkinter as ctk
 from settings import *
-from main import Main
 import webbrowser
-#from tracking_window import Tracking_Window_Tabs
+
+
+
 
 
 
@@ -40,12 +41,6 @@ class Login_Window(ctk.CTkFrame):
         print("tracking tool")
         self.controller.show_page(Tracking_Window_Tabs)
         self.master.resizable(True, True)
-        
-       # Tracking_Window_Tabs()
-
-
-
-
 
 
 class Tracking_Window_Tabs(ctk.CTkFrame):
@@ -54,17 +49,28 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         self.controller = controller
         self.pack(expand=True,fill="both")
 
-        
-        self.back_button = ctk.CTkButton(self,text="back",width=100,height=100, command = self.go_login_window)
-        self.back_button.pack(padx=10,side="left")
-        self.tracking_tabs = ctk.CTkTabview(self)
-        tab1 = self.tracking_tabs.add("tab1")
-        tab2 = self.tracking_tabs.add("tab2")
-        self.tracking_tabs.pack(side="left",padx=10)
-        
+        #window.columnconfigure(3,weight=2,uniform="a")
+        #self.rowconfigure((0,1),weight=1,uniform="a")
+        #self.rowconfigure(2,weight=10,uniform="a")
+        #self.columnconfigure(0,weight=1,uniform="b")
+        #self.columnconfigure(1,weight=3,uniform="b")
+        #self.columnconfigure(2,weight=10,uniform="b")
+        #self.columnconfigure(3,weight=5,uniform="b")
+
+        #ctk.CTkButton(self,text=" ",bg_color= "red",command=self.go_login_window).grid(row=0,column=0,sticky="nsew")
     
     def go_login_window(self):
         self.controller.show_page(Login_Window)
+
+        
+      
+
+
+
+
+
+
+
        
         
         
