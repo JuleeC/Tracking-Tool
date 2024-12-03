@@ -2,6 +2,7 @@ import customtkinter as ctk
 import darkdetect
 from login_window import *
 
+
 from settings import *
 
 class Main(ctk.CTk):
@@ -11,10 +12,10 @@ class Main(ctk.CTk):
         self.geometry(f"{APP_SIZE[0]}x{APP_SIZE[1]}")
         self.resizable(False,False)
 
-
+        
        # self.creating_main_labels()
         self.active_frame = None
-        self.show_page(Main_Window)
+        self.show_page(Login_Window)
         
     def show_page(self,page_class):
         if self.active_frame:

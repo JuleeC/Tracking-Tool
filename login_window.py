@@ -1,11 +1,12 @@
 import customtkinter as ctk
 from settings import *
 from main import Main
+import webbrowser
 #from tracking_window import Tracking_Window_Tabs
 
 
 
-class Main_Window(ctk.CTkFrame):
+class Login_Window(ctk.CTkFrame):
     def __init__(self,parent = None, controller = None):
         super().__init__(master=parent,bg_color=GREEN,corner_radius=70,border_color=GREEN,border_width=10,fg_color=BLACK)
         self.controller = controller
@@ -32,7 +33,7 @@ class Main_Window(ctk.CTkFrame):
         self.pack(expand=True,fill="both")
 
     def open_github_func(self):
-        print("open github")
+      webbrowser.open("https://github.com/JuleeC")
 
     def open_tracking_tool(self):
         
@@ -49,18 +50,21 @@ class Main_Window(ctk.CTkFrame):
 
 class Tracking_Window_Tabs(ctk.CTkFrame):
     def __init__(self,parent=None,controller =None):
-        super().__init__(master=parent)
+        super().__init__(master=parent,bg_color="blue")
         self.controller = controller
-        
+        self.pack(expand=True,fill="both")
 
-        #self.pack()
-        #self.add("tab1")
-        #self.add("tab2")
-        #self.set("tab2")
-
-        self.label = ctk.CTkLabel(master=self)
-        self.label.pack()
         
+        self.back_button = ctk.CTkButton(self,text="back",width=100,height=100, command = self.go_login_window)
+        self.back_button.pack(padx=10,side="left")
+        self.tracking_tabs = ctk.CTkTabview(self)
+        tab1 = self.tracking_tabs.add("tab1")
+        tab2 = self.tracking_tabs.add("tab2")
+        self.tracking_tabs.pack(side="left",padx=10)
+        
+    
+    def go_login_window(self):
+        self.controller.show_page(Login_Window)
        
         
         
