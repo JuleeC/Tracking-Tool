@@ -1,13 +1,13 @@
 import customtkinter as ctk
 import darkdetect
 
-from login_window import Login_Window
+from windows import Login_Window
 from settings import *
 
 
 class Main(ctk.CTk):
     def __init__(self,is_dark):
-        super().__init__(fg_color=(WHITE,BLACK))
+        super().__init__(fg_color=(GREEN_UI["white"],GREEN_UI["black"]))
         ctk.set_appearance_mode("dark") if is_dark else ctk.set_appearance_mode("light")
         self.geometry(f"{APP_SIZE[0]}x{APP_SIZE[1]}")
         self.resizable(False,False)
