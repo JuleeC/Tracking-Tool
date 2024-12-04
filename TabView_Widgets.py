@@ -6,7 +6,7 @@ class TabView(ctk.CTkTabview):
     def __init__(self,parent,fg_color):
         super().__init__(master=parent,fg_color=fg_color,corner_radius=25)
         
-        self.grid(column=1,sticky="nsew")
+        self.grid(row=0,column=2,sticky="nsew",rowspan=2,padx=10)
        
         aktien_tab = self.add("Aktien")
         erze_tab = self.add("Erze")

@@ -55,19 +55,26 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         self.pack(expand=True,fill="both")
 
         #LAYOUT
-        self.columnconfigure(0,weight=30,uniform="a")
-        self.columnconfigure(1,weight=70,uniform="a")
+        self.rowconfigure(0,weight=WEIGHT_ROW_BUTTON,uniform="a")
+        self.rowconfigure(1,weight=WEIGHT_ROW_SETTINGS_FRAME,uniform="a")
+        self.columnconfigure(0,weight=WEIGHT_FILE_MANAGER_TAB,uniform="a")
+        self.columnconfigure(1,weight=WEIGHT_SETTINGS_MANAGER_TAB,uniform="a")
+        self.columnconfigure(2,weight=WEIGHT_CHART_TAB,uniform="a")
 
-        ctk.CTkFrame(self,fg_color="red").grid(column=0,sticky="nsew",rowspan=5)
-        ctk.CTkFrame(self,fg_color="red").grid(column=1,sticky="nsew",rowspan=5)
+        #---EXAMPLE---
+        # ctk.CTkFrame(self,fg_color="red").grid(row=0,column=0,sticky="nsew")
+        # ctk.CTkFrame(self,fg_color="blue").grid(row=0,column=1,sticky="nsew")
+        # ctk.CTkFrame(self,fg_color="red").grid(row=0,column=2,sticky="nsew")
+       
         
-        #TabView(self,fg_color = DARK_BLUE_UI["gray"])
-        #ctk.CTkButton(self,fg_color= DARK_BLUE_UI["gray"],corner_radius=5,command=self.go_login_window).pack(side="left")
-        #File_Manager(self,
-        #             fg_color=DARK_BLUE_UI["gray"]
-        #            )
-        #Settings_Manager(self,
-        #                 fg_color=DARK_BLUE_UI["gray"])
+        
+        TabView(self,fg_color = DARK_BLUE_UI["gray"])
+        ctk.CTkButton(self,fg_color= DARK_BLUE_UI["gray"],corner_radius=25,command=self.go_login_window).grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
+        File_Manager(self,
+                     fg_color=DARK_BLUE_UI["gray"]
+                    )
+        Settings_Manager(self,
+                         fg_color=DARK_BLUE_UI["gray"])
         
         #EXAMPLE
         # ctk.CTkFrame(self,fg_color= "red").grid(row=0,column=1,sticky="nsew",columnspan=3,padx=30)
