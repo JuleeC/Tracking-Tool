@@ -11,10 +11,9 @@ class Tab_Aktien(ctk.CTkFrame):
         self.pack(expand=True,fill="both")
 
         self.rowconfigure(0,weight=1)
-        self.columnconfigure(0,weight=15,uniform="b")
-        self.columnconfigure(1,weight=30,uniform="b")
-        self.columnconfigure(2,weight=100,uniform="b")
-        self.columnconfigure(3,weight=35,uniform="b")
+        self.columnconfigure(0,weight=50,uniform="b")
+        self.columnconfigure(1,weight=20,uniform="b")
+        
 
         Chart(self,
              fg_color=DARK_BLUE_UI["gray"])

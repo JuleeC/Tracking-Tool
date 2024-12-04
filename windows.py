@@ -1,6 +1,9 @@
 import customtkinter as ctk
 from settings import *
 import webbrowser
+from PIL import Image,ImageTk
+
+
 
 from TabView_Widgets import TabView
 from File_Manager_Widget import File_Manager
@@ -53,6 +56,7 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         super().__init__(master=parent,fg_color=DARK_BLUE_UI["black"])
         self.controller = controller
         self.pack(expand=True,fill="both")
+        
 
         #LAYOUT
         self.rowconfigure(0,weight=WEIGHT_ROW_BUTTON,uniform="a")
@@ -60,29 +64,24 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         self.columnconfigure(0,weight=WEIGHT_FILE_MANAGER_TAB,uniform="a")
         self.columnconfigure(1,weight=WEIGHT_SETTINGS_MANAGER_TAB,uniform="a")
         self.columnconfigure(2,weight=WEIGHT_CHART_TAB,uniform="a")
-
+        open_arrow_image = Image.open("images/arrow_back.png").resize((60,60))
+        arrow_back_image = ctk.CTkImage(light_image=open_arrow_image, dark_image=open_arrow_image)
         #---EXAMPLE---
         # ctk.CTkFrame(self,fg_color="red").grid(row=0,column=0,sticky="nsew")
         # ctk.CTkFrame(self,fg_color="blue").grid(row=0,column=1,sticky="nsew")
         # ctk.CTkFrame(self,fg_color="red").grid(row=0,column=2,sticky="nsew")
        
-        
+        self.bind("<Shift><MouseWheel><Down>",)
         
         TabView(self,fg_color = DARK_BLUE_UI["gray"])
-        ctk.CTkButton(self,fg_color= DARK_BLUE_UI["gray"],corner_radius=25,command=self.go_login_window).grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
+        ctk.CTkButton(self,fg_color= DARK_BLUE_UI["gray"],corner_radius=25,command=self.go_login_window,image=arrow_back_image).grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
         File_Manager(self,
                      fg_color=DARK_BLUE_UI["gray"]
                     )
         Settings_Manager(self,
                          fg_color=DARK_BLUE_UI["gray"])
         
-        #EXAMPLE
-        # ctk.CTkFrame(self,fg_color= "red").grid(row=0,column=1,sticky="nsew",columnspan=3,padx=30)
-        # ctk.CTkFrame(self,fg_color="green").grid(row=2,column=0,sticky="nsew",pady=10,padx=10)
-        # ctk.CTkFrame(self,fg_color="blue").grid(row=2,column=1,sticky="nsew",pady=10,padx=10)
-        # ctk.CTkFrame(self,fg_color="green").grid(row=2,column=2,sticky="nsew",pady=10,padx=10)
-        # ctk.CTkFrame(self,fg_color="red").grid(row=2,column=3,sticky="nsew",pady=10,padx=10)
-
+    
 
 
     def go_login_window(self):

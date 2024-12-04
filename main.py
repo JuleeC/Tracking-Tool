@@ -12,7 +12,7 @@ class Main(ctk.CTk):
         self.geometry(f"{APP_SIZE[0]}x{APP_SIZE[1]}")
         self.resizable(False,False)
         self.title("Tracking-Tool")
-        self.iconbitmap("greenbumbleinvestlogo.png")
+        self.iconbitmap("images/greenbumbleinvestlogo.png")
 
         
        # self.creating_main_labels()

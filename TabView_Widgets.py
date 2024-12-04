@@ -11,7 +11,7 @@ class TabView(ctk.CTkTabview):
         aktien_tab = self.add("Aktien")
         erze_tab = self.add("Erze")
         self.set("Aktien")
-        #Tab_Aktien(aktien_tab)
+        Tab_Aktien(aktien_tab)
         
 
        
