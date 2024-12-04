@@ -25,7 +25,10 @@ class Login_Window(ctk.CTkFrame):
         jules_hummel_singature_font = ctk.CTkFont(family=FONT_JULES_HUMMEL,size=MAIN_WINDOW_SIZE-60)
         buttons_font = ctk.CTkFont(family=FONT,size=MAIN_WINDOW_SIZE-60)
         #widgets
-       
+       #check opened frame
+      
+
+
         self.kapital_string = ctk.CTkLabel(self,text="Kapital",font=main_window_font,text_color=GREEN_UI["green"]).place(relx=0.45,rely=0.10,anchor="center")
         self.tracking_string = ctk.CTkLabel(self,text="Tracking",font=main_window_font,text_color=GREEN_UI["green"]).place(relx=0.5,rely=0.23,anchor="center")
         self.signing_string_by = ctk.CTkLabel(self,text="by",font=by_signing_font,text_color=GREEN_UI["green"]).place(relx=0.39,rely=0.31,anchor="center")
@@ -39,6 +42,8 @@ class Login_Window(ctk.CTkFrame):
         tracking_tool_button.place(relx=0.56,rely=0.6)
 
         self.pack(expand=True,fill="both")
+    
+    
 
     def open_github_func(self):
       webbrowser.open("https://github.com/JuleeC")
@@ -55,8 +60,10 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
     def __init__(self,parent=None,controller =None):
         super().__init__(master=parent,fg_color=DARK_BLUE_UI["black"])
         self.controller = controller
-        self.pack(expand=True,fill="both")
-        
+        #animation
+        global in_start_pos
+        in_start_pos = True
+        self.pos = RELHEIGHT
 
         #LAYOUT
         self.rowconfigure(0,weight=WEIGHT_ROW_BUTTON,uniform="a")
@@ -70,8 +77,8 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         # ctk.CTkFrame(self,fg_color="red").grid(row=0,column=0,sticky="nsew")
         # ctk.CTkFrame(self,fg_color="blue").grid(row=0,column=1,sticky="nsew")
         # ctk.CTkFrame(self,fg_color="red").grid(row=0,column=2,sticky="nsew")
+        
        
-        self.bind("<Shift><MouseWheel><Down>",)
         
         TabView(self,fg_color = DARK_BLUE_UI["gray"])
         ctk.CTkButton(self,fg_color= DARK_BLUE_UI["gray"],corner_radius=25,command=self.go_login_window,image=arrow_back_image).grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
@@ -83,6 +90,20 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         
     
 
+
+    def animate_entry(self,event):
+        if self.in_start_pos:
+            self.animate_forward()
+        else:
+            self.animate_backwards()
+
+    def animate_forward(self):
+        if self.pos > -1:
+            self.pos -= 0.008
+            self.place(relx=1,rely=self.pos,relwidth=RELWIDTH,relheight=RELHEIGHT)
+            self.after(5,self.animate_forward)
+        else:
+            in_start_pos = False
 
     def go_login_window(self):
         self.controller.show_page(Login_Window)

@@ -1,7 +1,8 @@
 import customtkinter as ctk
 import darkdetect
 
-from windows import Login_Window
+from windows import Login_Window, Tracking_Window_Tabs
+from windows import *
 from settings import *
 
 
@@ -19,11 +20,13 @@ class Main(ctk.CTk):
         self.active_frame = None
         self.show_page(Login_Window)
         
+        self.bind("<Down>",lambda event:Tracking_Window_Tabs.animate_entry(self,event))
+        
     def show_page(self,page_class):
         if self.active_frame:
             self.active_frame.destroy()
         self.active_frame = page_class(parent=self,controller=self)
-        self.active_frame.pack()
+        self.active_frame.place(relheight=RELHEIGHT,relwidth=RELWIDTH,anchor="nw")
 
 
 
