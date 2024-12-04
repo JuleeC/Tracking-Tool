@@ -14,7 +14,13 @@ GREEN_UI = {"green":"#31511E",
 
 BLUE_UI = {"dark_blue":"#0E2954",
            "blue":"#1F6E8C",
-           "light_green":"#2E8A99"}
+           "light_blue":"#2E8A99"}
+
+DARK_BLUE_UI = {
+    "black":"#222831",
+    "gray":"#393E46",
+    "light_blue":"#00ADB5"
+}
 
 FONT= "Cascadia Mono"
 FONT_JULES_HUMMEL = "Segoe Script"
