@@ -11,6 +11,8 @@ class Main(ctk.CTk):
         ctk.set_appearance_mode("dark") if is_dark else ctk.set_appearance_mode("light")
         self.geometry(f"{APP_SIZE[0]}x{APP_SIZE[1]}")
         self.resizable(False,False)
+        self.title("Tracking-Tool")
+        self.iconbitmap("greenbumbleinvestlogo.png")
 
         
        # self.creating_main_labels()
