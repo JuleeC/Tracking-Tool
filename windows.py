@@ -60,14 +60,14 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
     def __init__(self,parent=None,controller =None):
         super().__init__(master=parent,fg_color=DARK_BLUE_UI["black"])
         self.controller = controller
-        #animation
-        global in_start_pos
-        in_start_pos = True
-        self.pos = RELHEIGHT
-
+       
+       
+        
+        self.bind("<Up>",lambda event:Tracking_Window_Tabs.animate_entry(self,event))
         #LAYOUT
         self.rowconfigure(0,weight=WEIGHT_ROW_BUTTON,uniform="a")
         self.rowconfigure(1,weight=WEIGHT_ROW_SETTINGS_FRAME,uniform="a")
+        self.rowconfigure(2,weight=100,uniform="a")
         self.columnconfigure(0,weight=WEIGHT_FILE_MANAGER_TAB,uniform="a")
         self.columnconfigure(1,weight=WEIGHT_SETTINGS_MANAGER_TAB,uniform="a")
         self.columnconfigure(2,weight=WEIGHT_CHART_TAB,uniform="a")
@@ -77,11 +77,19 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         # ctk.CTkFrame(self,fg_color="red").grid(row=0,column=0,sticky="nsew")
         # ctk.CTkFrame(self,fg_color="blue").grid(row=0,column=1,sticky="nsew")
         # ctk.CTkFrame(self,fg_color="red").grid(row=0,column=2,sticky="nsew")
+
+
+        self.start_pos_y =  0
+        self.end_pos_y = -1
+        self.animate_width = abs(self.start_pos_y-self.end_pos_y) 
+        self.in_start_pos = True
+        self.pos = self.start_pos_y
         
        
         
         TabView(self,fg_color = DARK_BLUE_UI["gray"])
         ctk.CTkButton(self,fg_color= DARK_BLUE_UI["gray"],corner_radius=25,command=self.go_login_window,image=arrow_back_image).grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
+        ctk.CTkButton(self,text="entry",fg_color=DARK_BLUE_UI["gray"],corner_radius=25,command=self.animate_entry).grid(row=2,column=0,sticky="nsew",padx=4,pady=4,columnspan=3)
         File_Manager(self,
                      fg_color=DARK_BLUE_UI["gray"]
                     )
@@ -89,22 +97,33 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
                          fg_color=DARK_BLUE_UI["gray"])
         
     
+    
 
-
-    def animate_entry(self,event):
+    def animate_entry(self):
         if self.in_start_pos:
-            self.animate_forward()
+           self.animate_forward()
         else:
-            self.animate_backwards()
+           self.animate_backwards()
+           
+    def animate_backwards(self):
+        if self.pos < self.start_pos_y:
+            self.pos += 0.008
+            self.place(relx=0,rely= self.pos,relwidth=self.animate_width,relheight=1)
+            self.after(3,self.animate_backwards)
+        else: 
+            self.in_start_pos = True
+            
 
     def animate_forward(self):
-        if self.pos > -1:
-            self.pos -= 0.008
-            self.place(relx=1,rely=self.pos,relwidth=RELWIDTH,relheight=RELHEIGHT)
-            self.after(5,self.animate_forward)
-        else:
-            in_start_pos = False
 
+        if self.pos > self.end_pos_y:
+            self.pos -= 0.008
+            self.place(relx=0,rely= self.pos,relwidth=self.animate_width,relheight=1)
+            self.after(3,self.animate_forward)
+        else: 
+            self.in_start_pos = False
+            self.animate_backwards()
+  
     def go_login_window(self):
         self.controller.show_page(Login_Window)
 

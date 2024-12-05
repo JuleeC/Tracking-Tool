@@ -20,7 +20,7 @@ class Main(ctk.CTk):
         self.active_frame = None
         self.show_page(Login_Window)
         
-        self.bind("<Down>",lambda event:Tracking_Window_Tabs.animate_entry(self,event))
+        
         
     def show_page(self,page_class):
         if self.active_frame:
