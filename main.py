@@ -20,6 +20,7 @@ class Main(ctk.CTk):
         self.active_frame = None
         self.show_page(Login_Window)
         
+       
         
         
     def show_page(self,page_class):
@@ -31,5 +32,5 @@ class Main(ctk.CTk):
 
 
 if __name__ == "__main__":
-   app = Main(darkdetect.isDark())
+   app = Main(True)
    app.mainloop()

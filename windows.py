@@ -5,10 +5,11 @@ from PIL import Image,ImageTk
 
 
 
+
 from TabView_Widgets import TabView
 from File_Manager_Widget import File_Manager
 from Settings_Manager_Widget import Settings_Manager
-
+from Entry_Widget import Entry_Widget_Frame
 
 
 
@@ -63,7 +64,7 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
        
        
         
-        self.bind("<Up>",lambda event:Tracking_Window_Tabs.animate_entry(self,event))
+        
         #LAYOUT
         self.rowconfigure(0,weight=WEIGHT_ROW_BUTTON,uniform="a")
         self.rowconfigure(1,weight=WEIGHT_ROW_SETTINGS_FRAME,uniform="a")
@@ -73,18 +74,25 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         self.columnconfigure(2,weight=WEIGHT_CHART_TAB,uniform="a")
         open_arrow_image = Image.open("images/arrow_back.png").resize((60,60))
         arrow_back_image = ctk.CTkImage(light_image=open_arrow_image, dark_image=open_arrow_image)
+
+
         #---EXAMPLE---
         # ctk.CTkFrame(self,fg_color="red").grid(row=0,column=0,sticky="nsew")
         # ctk.CTkFrame(self,fg_color="blue").grid(row=0,column=1,sticky="nsew")
         # ctk.CTkFrame(self,fg_color="red").grid(row=0,column=2,sticky="nsew")
 
+        #START END POSTIONS
+        self.chart_start_pos_y =  0
+        self.entry_start_pos_y = 1
+        self.chart_end_pos_y = -0.93
+        self.entry_end_pos_y = 0.93
 
-        self.start_pos_y =  0
-        self.end_pos_y = -1
-        self.animate_width = abs(self.start_pos_y-self.end_pos_y) 
+
+        self.animate_width = abs(self.chart_start_pos_y-(self.entry_end_pos_y+0.07)) 
         self.in_start_pos = True
-        self.pos = self.start_pos_y
-        
+        self.pos_chart_frame = self.chart_start_pos_y
+        self.entry_widget_var = Entry_Widget_Frame(parent=self,fg_color="red")
+        self.pos_entry_frame = self.entry_start_pos_y
        
         
         TabView(self,fg_color = DARK_BLUE_UI["gray"])
@@ -97,7 +105,7 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
                          fg_color=DARK_BLUE_UI["gray"])
         
     
-    
+       
 
     def animate_entry(self):
         if self.in_start_pos:
@@ -106,9 +114,11 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
            self.animate_backwards()
            
     def animate_backwards(self):
-        if self.pos < self.start_pos_y:
-            self.pos += 0.008
-            self.place(relx=0,rely= self.pos,relwidth=self.animate_width,relheight=1)
+        if self.pos_chart_frame < self.chart_start_pos_y:
+            self.pos_chart_frame += 0.008
+            self.pos_entry_frame -= 0.008
+            self.place(relx=0,rely= self.pos_chart_frame,relwidth=self.animate_width,relheight=1)
+            self.entry_widget_var.place(relx=0,rely=self.pos_entry_frame,relwidth=self.animate_width,relheight=1)
             self.after(3,self.animate_backwards)
         else: 
             self.in_start_pos = True
@@ -116,13 +126,15 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
 
     def animate_forward(self):
 
-        if self.pos > self.end_pos_y:
-            self.pos -= 0.008
-            self.place(relx=0,rely= self.pos,relwidth=self.animate_width,relheight=1)
+        if self.pos_chart_frame > self.chart_end_pos_y:
+            self.pos_chart_frame -= 0.008
+            self.pos_entry_frame += 0.008
+            self.place(relx=0,rely= self.pos_chart_frame,relwidth=self.animate_width,relheight=1)
+            self.entry_widget_var.place(relx=0,rely=self.pos_entry_frame,relwidth=self.animate_width,relheight=1)
             self.after(3,self.animate_forward)
         else: 
             self.in_start_pos = False
-            self.animate_backwards()
+            #self.animate_backwards()
   
     def go_login_window(self):
         self.controller.show_page(Login_Window)
