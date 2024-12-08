@@ -32,5 +32,5 @@ class Main(ctk.CTk):
 
 
 if __name__ == "__main__":
-   app = Main(True)
+   app = Main(darkdetect.isDark())
    app.mainloop()

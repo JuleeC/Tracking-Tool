@@ -91,8 +91,11 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         self.animate_width = abs(self.chart_start_pos_y-(self.entry_end_pos_y+0.07)) 
         self.in_start_pos = True
         self.pos_chart_frame = self.chart_start_pos_y
-        self.entry_widget_var = Entry_Widget_Frame(parent=self,fg_color="red")
         self.pos_entry_frame = self.entry_start_pos_y
+
+        #Entry Widget als var
+        entry_widget_var = Entry_Widget_Frame(parent=self,fg_color="red")
+        entry_widget_var.place(anchor="nw",relx = 0, rely=0.5,relwidth = RELWIDTH,relheight =RELHEIGHT)
        
         
         TabView(self,fg_color = DARK_BLUE_UI["gray"])
@@ -130,11 +133,11 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
             self.pos_chart_frame -= 0.008
             self.pos_entry_frame += 0.008
             self.place(relx=0,rely= self.pos_chart_frame,relwidth=self.animate_width,relheight=1)
-            self.entry_widget_var.place(relx=0,rely=self.pos_entry_frame,relwidth=self.animate_width,relheight=1)
+           # self.entry_widget_var.place(relx=0,rely=self.pos_entry_frame,relwidth=self.animate_width,relheight=1)
             self.after(3,self.animate_forward)
         else: 
             self.in_start_pos = False
-            #self.animate_backwards()
+            
   
     def go_login_window(self):
         self.controller.show_page(Login_Window)
