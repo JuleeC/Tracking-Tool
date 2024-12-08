@@ -1,7 +1,7 @@
 import customtkinter as ctk
 import darkdetect
 
-from windows import Login_Window, Tracking_Window_Tabs
+from windows import Login_Window
 from windows import *
 from settings import *
 
@@ -17,12 +17,14 @@ class Main(ctk.CTk):
 
         
        # self.creating_main_labels()
+        self.entry_widget_var = Entry_Widget_Frame(parent=self,fg_color=DARK_BLUE_UI["gray"])
         self.active_frame = None
         self.show_page(Login_Window)
         
+        
+        
+        self.entry_widget_var.pack(expand=True,fill="both")
        
-        
-        
     def show_page(self,page_class):
         if self.active_frame:
             self.active_frame.destroy()

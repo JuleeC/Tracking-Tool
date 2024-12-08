@@ -83,24 +83,23 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
 
         #START END POSTIONS
         self.chart_start_pos_y =  0
-        self.entry_start_pos_y = 1
         self.chart_end_pos_y = -0.93
-        self.entry_end_pos_y = 0.93
-
-
-        self.animate_width = abs(self.chart_start_pos_y-(self.entry_end_pos_y+0.07)) 
         self.in_start_pos = True
         self.pos_chart_frame = self.chart_start_pos_y
-        self.pos_entry_frame = self.entry_start_pos_y
 
-        #Entry Widget als var
-        entry_widget_var = Entry_Widget_Frame(parent=self,fg_color="red")
-        entry_widget_var.place(anchor="nw",relx = 0, rely=0.5,relwidth = RELWIDTH,relheight =RELHEIGHT)
+
+        #entry button font
+        entry_button_font =("Cascadia Mono",20)
+        
+
+       
+        
+      
        
         
         TabView(self,fg_color = DARK_BLUE_UI["gray"])
         ctk.CTkButton(self,fg_color= DARK_BLUE_UI["gray"],corner_radius=25,command=self.go_login_window,image=arrow_back_image).grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
-        ctk.CTkButton(self,text="entry",fg_color=DARK_BLUE_UI["gray"],corner_radius=25,command=self.animate_entry).grid(row=2,column=0,sticky="nsew",padx=4,pady=4,columnspan=3)
+        ctk.CTkButton(self,text="Entry",fg_color=DARK_BLUE_UI["gray"],corner_radius=25,command=self.animate_entry,font=entry_button_font).grid(row=2,column=0,sticky="nsew",padx=4,pady=4,columnspan=3)
         File_Manager(self,
                      fg_color=DARK_BLUE_UI["gray"]
                     )
@@ -119,9 +118,8 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
     def animate_backwards(self):
         if self.pos_chart_frame < self.chart_start_pos_y:
             self.pos_chart_frame += 0.008
-            self.pos_entry_frame -= 0.008
-            self.place(relx=0,rely= self.pos_chart_frame,relwidth=self.animate_width,relheight=1)
-            self.entry_widget_var.place(relx=0,rely=self.pos_entry_frame,relwidth=self.animate_width,relheight=1)
+            
+            self.place(relx=0,rely= self.pos_chart_frame,relwidth=1,relheight=1)
             self.after(3,self.animate_backwards)
         else: 
             self.in_start_pos = True
@@ -131,13 +129,13 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
 
         if self.pos_chart_frame > self.chart_end_pos_y:
             self.pos_chart_frame -= 0.008
-            self.pos_entry_frame += 0.008
-            self.place(relx=0,rely= self.pos_chart_frame,relwidth=self.animate_width,relheight=1)
-           # self.entry_widget_var.place(relx=0,rely=self.pos_entry_frame,relwidth=self.animate_width,relheight=1)
+          
+            self.place(relx=0,rely= self.pos_chart_frame,relwidth=1,relheight=1)      
             self.after(3,self.animate_forward)
         else: 
             self.in_start_pos = False
             
+
   
     def go_login_window(self):
         self.controller.show_page(Login_Window)
