@@ -3,6 +3,7 @@ import customtkinter as ctk
 from tkinter import ttk
 from settings import *
 
+
 class Entry_Widget_Frame(ctk.CTkFrame):
     def __init__(self,parent,fg_color):
         super().__init__(master=parent,fg_color=fg_color,border_width=20,border_color=DARK_BLUE_UI["black"])
@@ -22,35 +23,53 @@ class Entry_Widget_Frame(ctk.CTkFrame):
         date_entry_def_var = ctk.StringVar(value="date")
         self.date_entry_var = ctk.StringVar()
         self.index = 0
+        self.tree_data = []
 
-    
         ctk.CTkEntry(self,placeholder_text=item_entry_def_var.get(),textvariable=self.item_entry_var).grid(row=1,column=1,sticky="nsew",padx=15,pady=15)
         ctk.CTkEntry(self,placeholder_text=amount_entry_def_var.get(),textvariable=self.amount_entry_var).grid(row=1,column=2,sticky="nsew",padx=15,pady=15)
         ctk.CTkEntry(self,placeholder_text=date_entry_def_var.get(),textvariable=self.date_entry_var).grid(row=1,column=3,sticky="nsew",padx=15,pady=15)
-        ctk.CTkButton(self,text="Submit",command=Entry_Tree.insert_data_toTree(self)).grid(row=1,column=4,sticky="nsew",padx=15,pady=15)
+        ctk.CTkButton(self,text="Submit",command=lambda:self.insert_data_toTree(item_var=self.item_entry_var.get(),amount_var=self.amount_entry_var.get(),date_var=self.date_entry_var.get())).grid(row=1,column=4,sticky="nsew",padx=15,pady=15)
    
         
-    
+    def insert_data_toTree(self,item_var,amount_var,date_var):
+       
+        tree_one_data = (item_var,amount_var,date_var)
+        self.tree_data.append(tree_one_data)
+        self.index += 1
+        print(f"{self.index}-------------{self.tree_data}")
+        entry_tree = Entry_Tree(self)
+        for i in range(self.index):
+            
+            entry_tree.insert(parent="",index="end",values=self.tree_data[i])
 
 class Entry_Tree(ttk.Treeview):
-    def __init__(self,parent,item_var,amount_var,date_var,index):
-        super().__init__(master=parent,columns=("items","amount","date"),show = "headings",displaycolumns = '#all')
+    def __init__(self,parent):
+        super().__init__(master=parent,columns=("items","amount","date"),show = "headings",displaycolumns = '#all',style="Entry.Treeview")
 
-    
+        tree_style = ttk.Style(self)
 
-        self.item_var = item_var
-        self.amount_var = amount_var
-        self.date_var = date_var
-        self.count = index
-        print(self.count)
+        tree_style.configure(
+            "Entry.Treeview",
+            background=DARK_BLUE_UI["gray"],
+            foreground=GREEN_UI["white"],
+            fieldbackground=DARK_BLUE_UI["gray"],
+            rowheight=25)
+        
+        tree_style.configure(
+            "Entry.Treeview.Heading",
+            background=DARK_BLUE_UI["gray"],
+            foreground=GREEN_UI["white"],
+            font=(f"{FONT}",12,"bold"),
+        )
+
+        tree_style.map("Entry.Treeview.Heading",
+                       background=[("active", DARK_BLUE_UI["light_blue"])],)
+        
         self.heading("items",text="items")
         self.heading("amount",text="amount")
         self.heading("date",text="date")
-        tree_data = (self.item_var,self.amount_var,self.date_var)
-        
-        self.insert("","end",values=tree_data)
+       
         self.grid(row=2,column=1,columnspan=4,sticky="nsew",pady=10)
 
-    def insert_data_toTree(self):
-        Entry_Tree(self,item_var= self.item_entry_var.get(),amount_var=self.amount_entry_var.get(),date_var=self.date_entry_var.get(),index=self.index)
-        self.index += 1
+    
+        
