@@ -30,7 +30,7 @@ class Entry_Widget_Frame(ctk.CTkFrame):
         ctk.CTkEntry(self,placeholder_text=date_entry_def_var.get(),textvariable=self.date_entry_var).grid(row=1,column=3,sticky="nsew",padx=15,pady=15)
         ctk.CTkButton(self,text="Submit",command=lambda:self.insert_data_toTree(item_var=self.item_entry_var.get(),amount_var=self.amount_entry_var.get(),date_var=self.date_entry_var.get())).grid(row=1,column=4,sticky="nsew",padx=15,pady=15)
    
-        
+        Entry_Tree(self)
     def insert_data_toTree(self,item_var,amount_var,date_var):
        
         tree_one_data = (item_var,amount_var,date_var)
@@ -46,12 +46,13 @@ class Entry_Tree(ttk.Treeview):
         super().__init__(master=parent,columns=("items","amount","date"),show = "headings",style="Treeview",padding=11,displaycolumns="#all")
         tree_style = ttk.Style(self)
         tree_style.theme_use("clam")
+
         # Style for the Treeview rows
         tree_style.configure(
             "Treeview",
-            background=ENTRY_COLOR_UI["gray"],       # 
-            foreground=GREEN_UI["white"],       # 
-            fieldbackground=ENTRY_COLOR_UI["gray"],       #
+            background=ENTRY_COLOR_UI["gray"],       
+            foreground=GREEN_UI["white"],       
+            fieldbackground=ENTRY_COLOR_UI["gray"],       
             rowheight=25,
             bordercolor = ENTRY_COLOR_UI["border_gray"],   
             lightcolor=ENTRY_COLOR_UI["border_gray"],
@@ -70,9 +71,16 @@ class Entry_Tree(ttk.Treeview):
             darkcolor =ENTRY_COLOR_UI["border_gray"]
         )
 
-        # Map for interactive heading states (e.g., when hovered)
+       
         tree_style.map("Treeview.Heading",
                        background=[("active", ENTRY_COLOR_UI["blue"])])  
+        
+#--------------------------------------------------------------------------
+        #NEXT EVENT FOR DELETE A INSERT
+        #MESSAGEBOX_GSCHEIDE ALS MESSAGEBOX BENUTZEN 
+        #IF NO TIME THEN CURRENT TIME
+        #ITEM OR VALUE CANT BE NONE
+#-------------------------------------------------------------------------
         
        
         
