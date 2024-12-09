@@ -22,6 +22,12 @@ DARK_BLUE_UI = {
     "light_blue":"#00ADB5"
 }
 
+ENTRY_COLOR_UI = {
+    "gray":"#343638",
+    "blue":"#144870",
+    "border_gray":"#565b5e",
+}
+
 FONT= "Cascadia Mono"
 FONT_JULES_HUMMEL = "Segoe Script"
 

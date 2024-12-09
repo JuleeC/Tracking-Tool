@@ -39,31 +39,43 @@ class Entry_Widget_Frame(ctk.CTkFrame):
         print(f"{self.index}-------------{self.tree_data}")
         entry_tree = Entry_Tree(self)
         for i in range(self.index):
-            
             entry_tree.insert(parent="",index="end",values=self.tree_data[i])
 
 class Entry_Tree(ttk.Treeview):
     def __init__(self,parent):
-        super().__init__(master=parent,columns=("items","amount","date"),show = "headings",displaycolumns = '#all',style="Entry.Treeview")
-
+        super().__init__(master=parent,columns=("items","amount","date"),show = "headings",style="Treeview",padding=11,displaycolumns="#all")
         tree_style = ttk.Style(self)
-
+        tree_style.theme_use("clam")
+        # Style for the Treeview rows
         tree_style.configure(
-            "Entry.Treeview",
-            background=DARK_BLUE_UI["gray"],
-            foreground=GREEN_UI["white"],
-            fieldbackground=DARK_BLUE_UI["gray"],
-            rowheight=25)
+            "Treeview",
+            background=ENTRY_COLOR_UI["gray"],       # 
+            foreground=GREEN_UI["white"],       # 
+            fieldbackground=ENTRY_COLOR_UI["gray"],       #
+            rowheight=25,
+            bordercolor = ENTRY_COLOR_UI["border_gray"],   
+            lightcolor=ENTRY_COLOR_UI["border_gray"],
+            darkcolor =ENTRY_COLOR_UI["border_gray"]              
+        )
         
+        # Style for the Treeview headings
         tree_style.configure(
-            "Entry.Treeview.Heading",
-            background=DARK_BLUE_UI["gray"],
-            foreground=GREEN_UI["white"],
-            font=(f"{FONT}",12,"bold"),
+            "Treeview.Heading",
+            fieldbackground=ENTRY_COLOR_UI["gray"],
+            background=ENTRY_COLOR_UI["gray"],       
+            foreground=GREEN_UI["white"],       
+            font=(f"{FONT}", 12, "bold"),
+            bordercolor = ENTRY_COLOR_UI["border_gray"],
+            lightcolor=ENTRY_COLOR_UI["border_gray"],
+            darkcolor =ENTRY_COLOR_UI["border_gray"]
         )
 
-        tree_style.map("Entry.Treeview.Heading",
-                       background=[("active", DARK_BLUE_UI["light_blue"])],)
+        # Map for interactive heading states (e.g., when hovered)
+        tree_style.map("Treeview.Heading",
+                       background=[("active", ENTRY_COLOR_UI["blue"])])  
+        
+       
+        
         
         self.heading("items",text="items")
         self.heading("amount",text="amount")
