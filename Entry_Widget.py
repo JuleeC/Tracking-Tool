@@ -123,15 +123,12 @@ class Entry_Tree(ttk.Treeview):
         delete_answer = CTkMessagebox(title="Delete?",message=f"Do you want to delete this entry?\n{entry_value}",icon="question",option_1="No",option_2="Yes",option_3="Cancel")
       
         if delete_answer.get() == "Yes":
-            
-            numbers = "".join([char for char in entry_id if char.isdigit() and char != "0"])
-            numb = int(numbers) -1
             self.delete(entry_id)
-            print(numbers)
             self.tree_data.remove(entry_value)    
         else: 
             pass
 
     
 #PROBLEM WITH ARRAY OUT OF RANGE
+ 
             
