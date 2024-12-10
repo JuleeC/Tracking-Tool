@@ -37,7 +37,21 @@ class Entry_Widget_Frame(ctk.CTkFrame):
         
     def insert_data_toTree(self,item_var,amount_var,date_var):
         
-        
+        if item_var == "":
+            CTkMessagebox(title="Error!",message="item cannot be an empty value!",icon="cancel",option_1="Ok")
+        elif amount_var == "":
+            CTkMessagebox(title="Error!",message="amount cannot be an empty value!",icon="cancel",option_1="Ok")
+        elif date_var == "":
+            date_var = self.current_date_and_time
+            tree_one_data = (item_var,amount_var,date_var)
+            self.tree_data.append(tree_one_data)
+            self.index += 1
+            print(f"{self.index}-------------{self.tree_data}")
+            entry_tree = Entry_Tree(self,self.tree_data)
+            
+            for i in range(self.index):
+                entry_tree.insert(parent="",index="end",values=self.tree_data[i])
+        else:
             tree_one_data = (item_var,amount_var,date_var)
             self.tree_data.append(tree_one_data)
             self.index += 1
