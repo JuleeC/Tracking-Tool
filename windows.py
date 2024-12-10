@@ -98,7 +98,7 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
        
         
         TabView(self,fg_color = DARK_BLUE_UI["gray"])
-        ctk.CTkButton(self,fg_color= DARK_BLUE_UI["gray"],corner_radius=25,command=self.go_login_window,image=arrow_back_image).grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
+        ctk.CTkButton(self,fg_color= DARK_BLUE_UI["gray"],corner_radius=25,command=self.go_login_window,image=arrow_back_image,text="").grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
         ctk.CTkButton(self,text="Entry",fg_color=DARK_BLUE_UI["gray"],corner_radius=25,command=self.animate_entry,font=entry_button_font).grid(row=2,column=0,sticky="nsew",padx=4,pady=4,columnspan=3)
         File_Manager(self,
                      fg_color=DARK_BLUE_UI["gray"]
@@ -117,10 +117,10 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
            
     def animate_backwards(self):
         if self.pos_chart_frame < self.chart_start_pos_y:
-            self.pos_chart_frame += 0.008
+            self.pos_chart_frame += 0.011
             
             self.place(relx=0,rely= self.pos_chart_frame,relwidth=1,relheight=1)
-            self.after(3,self.animate_backwards)
+            self.after(5,self.animate_backwards)
         else: 
             self.in_start_pos = True
             
@@ -128,10 +128,10 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
     def animate_forward(self):
 
         if self.pos_chart_frame > self.chart_end_pos_y:
-            self.pos_chart_frame -= 0.008
+            self.pos_chart_frame -= 0.011
           
             self.place(relx=0,rely= self.pos_chart_frame,relwidth=1,relheight=1)      
-            self.after(3,self.animate_forward)
+            self.after(5,self.animate_forward)
         else: 
             self.in_start_pos = False
             
