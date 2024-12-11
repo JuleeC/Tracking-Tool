@@ -13,7 +13,7 @@ Website: [greenbumbleinvest](https://greenbumbleinvest.com/)
 
 ## Preview
 ### Start Window Design:
- <img src=https://github.com/JuleeC/Tracking-Tool/blob/main/images/Start_Window.PNG width=800 height = 400 align="center">
+ <img src=https://github.com/JuleeC/Tracking-Tool/blob/main/images/Start_Window.PNG width=400 height = 200 align="center">
 
  
 
