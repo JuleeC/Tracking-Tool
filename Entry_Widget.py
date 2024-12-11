@@ -43,7 +43,9 @@ class Entry_Widget_Frame(ctk.CTkFrame):
             CTkMessagebox(title="Error!",message="amount cannot be an empty value!",icon="cancel",option_1="Ok")
         elif date_var == "":
             date_var = self.current_date_and_time
-            tree_one_data = (item_var,amount_var,date_var)
+            date_calc_var = "".join(char for char in str(date_var) if char.isdigit())
+            
+            tree_one_data = (item_var,amount_var,date_calc_var)
             self.tree_data.append(tree_one_data)
             self.index += 1
             print(f"{self.index}-------------{self.tree_data}")
@@ -59,7 +61,10 @@ class Entry_Widget_Frame(ctk.CTkFrame):
             entry_tree = Entry_Tree(self,self.tree_data)
            
             for i in range(self.index):
-                entry_tree.insert(parent="",index="end",values=self.tree_data[i])
+                
+                
+                    entry_tree.insert(parent="",index="end",values=self.tree_data[i])
+                    print(f"{i} IIIIII")
        
 
 class Entry_Tree(ttk.Treeview):
@@ -123,6 +128,9 @@ class Entry_Tree(ttk.Treeview):
         delete_answer = CTkMessagebox(title="Delete?",message=f"Do you want to delete this entry?\n{entry_value}",icon="question",option_1="No",option_2="Yes",option_3="Cancel")
       
         if delete_answer.get() == "Yes":
+            print(entry_id)
+            for i in range(self.index):
+                print(f"{i},,")
             self.delete(entry_id)
             self.tree_data.remove(entry_value)    
         else: 
