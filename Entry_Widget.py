@@ -50,9 +50,11 @@ class Entry_Widget_Frame(ctk.CTkFrame):
             self.index += 1
             print(f"{self.index}-------------{self.tree_data}")
             entry_tree = Entry_Tree(self,self.tree_data)
-            
-            for i in range(self.index):
-                entry_tree.insert(parent="",index="end",values=self.tree_data[i])
+            try:
+                for i in range(self.index):
+                    entry_tree.insert(parent="",index="end",values=self.tree_data[i])
+            except IndexError:
+                print("Error-Handling: array out of range")
         else:
             tree_one_data = (item_var,amount_var,date_var)
             self.tree_data.append(tree_one_data)
@@ -124,19 +126,35 @@ class Entry_Tree(ttk.Treeview):
             entry_value = self.item(entry_id, "values")
             self.messagebox_delete_question(entry_id=entry_id,entry_value=entry_value)
 
-    def messagebox_delete_question(self,entry_id,entry_value):
-        delete_answer = CTkMessagebox(title="Delete?",message=f"Do you want to delete this entry?\n{entry_value}",icon="question",option_1="No",option_2="Yes",option_3="Cancel")
-      
+    def messagebox_delete_question(self, entry_id, entry_value):
+        delete_answer = CTkMessagebox(
+            title="Delete?",
+            message=f"Do you want to delete this entry?\n{entry_value}",
+            icon="question",
+            option_1="No",
+            option_2="Yes",
+            option_3="Cancel"
+        )
+
         if delete_answer.get() == "Yes":
-            print(entry_id)
-            for i in range(self.index):
-                print(f"{i},,")
-            self.delete(entry_id)
-            self.tree_data.remove(entry_value)    
-        else: 
-            pass
+
+            print(f"Deleting entry with ID: {entry_id} and Value: {entry_value}")
+
+            
+            self.delete(entry_id)   
+            
+            
+            try:
+                self.tree_data.remove(entry_value)
+                print(f"Entry removed from array: {entry_value}")
+            except ValueError:
+                print(f"Error: Entry {entry_value} not found in the array!")
+
+        else:
+            print("Deletion canceled.")
+
 
     
-#PROBLEM WITH ARRAY OUT OF RANGE
+
  
             
