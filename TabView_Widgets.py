@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from settings import *
-from Tab_Aktien_Frame import Tab_Aktien
+from Tab_Aktien_Frame import ChartFrame
 
 class TabView(ctk.CTkTabview):
     def __init__(self,parent,fg_color):
@@ -10,10 +10,11 @@ class TabView(ctk.CTkTabview):
        
         aktien_tab = self.add("Aktien")
         erze_tab = self.add("Erze")
+        anleihen_tab = self.add("Anleihen")
         self.set("Aktien")
-        Tab_Aktien(aktien_tab)
-        Tab_Aktien(erze_tab)
-        
+        ChartFrame(aktien_tab,fg_color="red")
+        ChartFrame(erze_tab,fg_color="blue")
+        ChartFrame(anleihen_tab,fg_color="green")        
 
        
       

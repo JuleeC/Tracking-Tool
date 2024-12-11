@@ -18,12 +18,13 @@ BLUE_UI = {"dark_blue":"#0E2954",
 
 DARK_BLUE_UI = {
     "black":"#222831",
-    "gray":"#393E46",
-    "light_blue":"#00ADB5"
+    "gray":"#343638",
+    "light_blue":"#00ADB5",
+    "border_gray":"#565b5e",
 }
 
 ENTRY_COLOR_UI = {
-    "gray":"#343638",
+    "gray":"#1d1e1f",   #RRGGBB 
     "blue":"#144870",
     "border_gray":"#565b5e",
 }

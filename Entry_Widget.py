@@ -29,9 +29,9 @@ class Entry_Widget_Frame(ctk.CTkFrame):
         self.current_date_and_time = date.today()
 
         Entry_Tree(self,self.tree_data)
-        ctk.CTkEntry(self,placeholder_text_color="blue",placeholder_text=item_entry_def_var.get(),textvariable=self.item_entry_var).grid(row=1,column=1,sticky="nsew",padx=15,pady=15)
-        ctk.CTkEntry(self,placeholder_text=amount_entry_def_var.get(),textvariable=self.amount_entry_var).grid(row=1,column=2,sticky="nsew",padx=15,pady=15)
-        ctk.CTkEntry(self,placeholder_text=date_entry_def_var.get(),textvariable=self.date_entry_var).grid(row=1,column=3,sticky="nsew",padx=15,pady=15)
+        ctk.CTkEntry(self,placeholder_text_color="blue",placeholder_text=item_entry_def_var.get(),fg_color=ENTRY_COLOR_UI["gray"],textvariable=self.item_entry_var).grid(row=1,column=1,sticky="nsew",padx=15,pady=15)
+        ctk.CTkEntry(self,placeholder_text=amount_entry_def_var.get(),fg_color=ENTRY_COLOR_UI["gray"],textvariable=self.amount_entry_var).grid(row=1,column=2,sticky="nsew",padx=15,pady=15)
+        ctk.CTkEntry(self,placeholder_text=date_entry_def_var.get(),fg_color=ENTRY_COLOR_UI["gray"],textvariable=self.date_entry_var).grid(row=1,column=3,sticky="nsew",padx=15,pady=15)
         ctk.CTkButton(self,text="Submit",command=lambda:self.insert_data_toTree(item_var=self.item_entry_var.get(),amount_var=self.amount_entry_var.get(),date_var=self.date_entry_var.get())).grid(row=1,column=4,sticky="nsew",padx=15,pady=15)
         
         
@@ -62,11 +62,12 @@ class Entry_Widget_Frame(ctk.CTkFrame):
             print(f"{self.index}-------------{self.tree_data}")
             entry_tree = Entry_Tree(self,self.tree_data)
            
-            for i in range(self.index):
-                
-                
+            try:
+                for i in range(self.index):
                     entry_tree.insert(parent="",index="end",values=self.tree_data[i])
-                    print(f"{i} IIIIII")
+            except IndexError:
+                print("Error-Handling: array out of range")
+                   
        
 
 class Entry_Tree(ttk.Treeview):
@@ -115,6 +116,11 @@ class Entry_Tree(ttk.Treeview):
         self.heading("amount",text="amount")
         self.heading("date",text="date")
        
+
+        self.column("items", anchor="center",stretch=True)
+        self.column("amount", anchor="center",stretch=True)
+        self.column("date", anchor="center",stretch=True)
+
         self.grid(row=2,column=1,columnspan=4,sticky="nsew",pady=10)
 
 
@@ -138,7 +144,7 @@ class Entry_Tree(ttk.Treeview):
 
         if delete_answer.get() == "Yes":
 
-            print(f"Deleting entry with ID: {entry_id} and Value: {entry_value}")
+            print(f"Deleting  {entry_value}")
 
             
             self.delete(entry_id)   
@@ -148,7 +154,7 @@ class Entry_Tree(ttk.Treeview):
                 self.tree_data.remove(entry_value)
                 print(f"Entry removed from array: {entry_value}")
             except ValueError:
-                print(f"Error: Entry {entry_value} not found in the array!")
+                print(f"Entry {entry_value} not found in the array")
 
         else:
             print("Deletion canceled.")
