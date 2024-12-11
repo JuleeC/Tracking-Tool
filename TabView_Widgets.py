@@ -12,6 +12,8 @@ class TabView(ctk.CTkTabview):
         erze_tab = self.add("Erze")
         anleihen_tab = self.add("Anleihen")
         self.set("Aktien")
+
+        #DIE EINZELNEN CHARTS:
         ChartFrame(aktien_tab,fg_color="red")
         ChartFrame(erze_tab,fg_color="blue")
         ChartFrame(anleihen_tab,fg_color="green")        

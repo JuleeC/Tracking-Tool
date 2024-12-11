@@ -8,6 +8,8 @@ from settings import *
 class ChartFrame(ctk.CTkFrame):
     def __init__(self,parent,fg_color):
         super().__init__(master=parent,fg_color=fg_color)
+          
+
         self.pack(expand=True,fill="both")
 
         
