@@ -36,3 +36,24 @@ class Main(ctk.CTk):
 if __name__ == "__main__":
    app = Main(darkdetect.isDark())
    app.mainloop()
+
+
+#Next Tasks:
+
+#Settings & File Manager:
+#Picture Design (Files,Calc,Appearance)
+#Visualizing it and design the buttons that are the pictures on
+#doing the settings manager frame for files,calc (appearance not important for now)
+
+
+#Chart Frame:
+#Create it
+#Style it
+#Give it the data
+
+
+#On File Manager(not essential):
+#setting to add new tab
+#also set start amount
+
+
