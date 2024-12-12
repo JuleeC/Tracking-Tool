@@ -2,6 +2,7 @@ import customtkinter as ctk
 from settings import *
 import webbrowser
 from PIL import Image,ImageTk
+import datetime
 
 
 
@@ -25,8 +26,7 @@ class Login_Window(ctk.CTkFrame):
         by_signing_font = ctk.CTkFont(family = FONT,size=MAIN_WINDOW_SIZE-60)
         jules_hummel_singature_font = ctk.CTkFont(family=FONT_JULES_HUMMEL,size=MAIN_WINDOW_SIZE-60)
         buttons_font = ctk.CTkFont(family=FONT,size=MAIN_WINDOW_SIZE-60)
-        #widgets
-       #check opened frame
+        
       
 
 
@@ -94,7 +94,8 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
 
        
         
-      
+        current_time = datetime.time
+        print(current_time)
        
         
         TabView(self,fg_color = DARK_BLUE_UI["gray"])

@@ -41,9 +41,9 @@ if __name__ == "__main__":
 #Next Tasks:
 
 #Settings & File Manager:
-#Picture Design (Files,Calc,Appearance)
+#Picture Design (Files,Calc,Settings) / DONE (SHIT IMAGES)
 #Visualizing it and design the buttons that are the pictures on
-#doing the settings manager frame for files,calc (appearance not important for now)
+#doing the settings manager frame for files,calc (settings not important for now)
 
 
 #Chart Frame:
