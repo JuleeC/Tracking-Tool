@@ -99,7 +99,8 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
                      fg_color=DARK_BLUE_UI["gray"]
                     )
         Settings_Manager(self,
-                         fg_color=DARK_BLUE_UI["gray"])
+                         fg_color=DARK_BLUE_UI["gray"],
+                         layer="File",on_open=True)
         
     
        
