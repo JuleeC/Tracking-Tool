@@ -104,6 +104,7 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
     
     def file_button_on_click(self):
         Settings_Manager(self,layer="File",fg_color=DARK_BLUE_UI["gray"],on_open=False)
+        print("dasds")
 
     def calc_button_on_click(self):
         Settings_Manager(self,layer="Calculator",fg_color=DARK_BLUE_UI["gray"],on_open=False)

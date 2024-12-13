@@ -1,6 +1,6 @@
 import customtkinter as ctk
 import darkdetect
-from windows import Login_Window
+from windows import Tracking_Window_Tabs,Login_Window
 
 from Entry_Widget import Entry_Widget_Frame
 from settings import *
@@ -14,6 +14,8 @@ class Main(ctk.CTk):
         self.resizable(False,False)
         self.title("Tracking-Tool")
         self.iconbitmap("images/greenbumbleinvestlogo.png")
+
+        
 
         
        # self.creating_main_labels()
@@ -34,7 +36,7 @@ class Main(ctk.CTk):
 
    
     def file_button_on_click(self):
-        #Tracking_Window_Tabs.file_button_on_click(self)
+        Tracking_Window_Tabs.file_button_on_click()
         pass
     def calc_button_on_click(self):
         pass
@@ -68,5 +70,13 @@ if __name__ == "__main__":
 #On File Manager(not essential):
 #setting to add new tab
 #also set start amount
+
+
+
+
+   
+
+        
+
 
 
