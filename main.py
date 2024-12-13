@@ -1,8 +1,8 @@
 import customtkinter as ctk
 import darkdetect
-
 from windows import Login_Window
-from windows import *
+
+from Entry_Widget import Entry_Widget_Frame
 from settings import *
 
 
@@ -24,6 +24,7 @@ class Main(ctk.CTk):
         
         
         self.entry_widget_var.pack(expand=True,fill="both")
+        
        
     def show_page(self,page_class):
         if self.active_frame:
@@ -31,6 +32,18 @@ class Main(ctk.CTk):
         self.active_frame = page_class(parent=self,controller=self)
         self.active_frame.place(relheight=RELHEIGHT,relwidth=RELWIDTH,anchor="nw")
 
+   
+    def file_button_on_click(self):
+        #Tracking_Window_Tabs.file_button_on_click(self)
+        pass
+    def calc_button_on_click(self):
+        pass
+
+    def settings_button_on_click(self):
+        pass
+
+    def account_button_on_click(self):
+        pass
 
 
 if __name__ == "__main__":

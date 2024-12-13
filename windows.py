@@ -1,16 +1,15 @@
 import customtkinter as ctk
 from settings import *
 import webbrowser
-from PIL import Image,ImageTk
-import datetime
+from PIL import Image
 
 
 
 
 from TabView_Widgets import TabView
 from File_Manager_Widget import File_Manager
-from Settings_Manager_Widget import Settings_Manager
-from Entry_Widget import Entry_Widget_Frame
+from Settings_Manager_Widget import *
+
 
 
 
@@ -103,7 +102,17 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
                          layer="File",on_open=True)
         
     
-       
+    def file_button_on_click(self):
+        Settings_Manager(self,layer="File",fg_color=DARK_BLUE_UI["gray"],on_open=False)
+
+    def calc_button_on_click(self):
+        Settings_Manager(self,layer="Calculator",fg_color=DARK_BLUE_UI["gray"],on_open=False)
+
+    def settings_button_on_click(self):
+        pass
+    
+    def account_button_on_click(self):
+        Settings_Manager(self,layer="Account",fg_color=DARK_BLUE_UI["gray"],on_open=False)   
 
     def animate_entry(self):
         if self.in_start_pos:

@@ -19,4 +19,4 @@ class Settings_Manager(ctk.CTkFrame):
         if on_open:
             self.grid(row=1,column=1,sticky="nsew",pady=5)
         else:
-            pass
+            self.grid(row=1,column=1,sticky="nsew",pady=5)
