@@ -90,12 +90,6 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
 
         #entry button font
         entry_button_font =("Cascadia Mono",20)
-        
-
-       
-        
-        current_time = datetime.time
-        print(current_time)
        
         
         TabView(self,fg_color = DARK_BLUE_UI["gray"])

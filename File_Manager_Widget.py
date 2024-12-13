@@ -17,11 +17,30 @@ class File_Manager(ctk.CTkFrame):
 
         account_image_open = Image.open("file_img/account_image.png").resize((50,50))
         account_image = ctk.CTkImage(light_image=account_image_open,dark_image=account_image_open)
-        ctk.CTkButton(self,text="",image=file_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80).pack()
-        ctk.CTkButton(self,text="",image=calc_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80).pack()
+        ctk.CTkButton(self,text="",image=file_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=self.file_button_on_click).pack()
+
+        def file_button_on_click(self):
+            pass
+
+
+
+        ctk.CTkButton(self,text="",image=calc_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=self.calc_button_on_click).pack()
         
-        ctk.CTkButton(self,text="",image=settings_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80).pack()
-        ctk.CTkButton(self,text="",image=account_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80).pack()
+        def calc_button_on_click(self):
+            pass
 
 
+
+        ctk.CTkButton(self,text="",image=settings_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=self.settings_button_on_click).pack()
+
+        def settings_button_on_click(self):
+            pass
+
+
+
+        ctk.CTkButton(self,text="",image=account_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=self.account_button_on_click).pack()
+
+        def account_button_on_click(self):
+            pass
+        
         self.grid(row=1,column=0,sticky="nsew",padx=5)
