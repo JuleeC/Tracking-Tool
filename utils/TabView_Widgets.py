@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from settings import *
-from Tab_Aktien_Frame import ChartFrame
+from utils.Tab_Aktien_Frame import ChartFrame
 
 class TabView(ctk.CTkTabview):
     def __init__(self,parent,fg_color):

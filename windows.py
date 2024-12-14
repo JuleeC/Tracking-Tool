@@ -3,9 +3,9 @@ from settings import *
 import webbrowser
 from PIL import Image
 
-from __init__ import File_Import
-from TabView_Widgets import TabView
-from Settings_Manager_Widget import *
+
+from utils.TabView_Widgets import TabView
+from utils.Settings_Manager_Widget import *
 
 
 
@@ -57,7 +57,7 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
     def __init__(self,parent=None,controller =None):
         super().__init__(master=parent,fg_color=DARK_BLUE_UI["black"])
         self.controller = controller
-       
+        
        
         
         
@@ -91,11 +91,16 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         TabView(self,fg_color = DARK_BLUE_UI["gray"])
         ctk.CTkButton(self,fg_color= DARK_BLUE_UI["gray"],corner_radius=25,command=self.go_login_window,image=arrow_back_image,text="").grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
         ctk.CTkButton(self,text="Entry",fg_color=DARK_BLUE_UI["gray"],corner_radius=25,command=self.animate_entry,font=entry_button_font).grid(row=2,column=0,sticky="nsew",padx=4,pady=4,columnspan=3)
-        File_Import.open_file_manager(self)
+        from __init__ import File_Import
+        self1 = self
+        File_Import.open_file_manager(self,self1)
+
         Settings_Manager(self,
                          fg_color=DARK_BLUE_UI["gray"],
                          layer="File",on_open=True)
         
+        
+    
 
     def animate_entry(self):
         if self.in_start_pos:
@@ -127,6 +132,19 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
   
     def go_login_window(self):
         self.controller.show_page(Login_Window)
+
+        
+    def file_button_on_click(self):
+        Settings_Manager(self,layer="File",fg_color=DARK_BLUE_UI["gray"],on_open=False).grid(row=1,column=1,sticky="nsew",pady=5)      
+
+    def calc_button_on_click(self):
+        Settings_Manager(self,layer="Calculator",fg_color=DARK_BLUE_UI["gray"],on_open=False).grid(row=1,column=1,sticky="nsew",pady=5)
+
+    def settings_button_on_click(self):
+        pass
+
+    def account_button_on_click(self):
+        Settings_Manager(self,layer="Account",fg_color=DARK_BLUE_UI["gray"],on_open=False).grid(row=1,column=1,sticky="nsew",pady=5)  
 
         
       

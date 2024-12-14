@@ -3,7 +3,7 @@ import darkdetect
 from windows import Login_Window
 from __init__ import on_CLick 
 
-from Entry_Widget import Entry_Widget_Frame
+from utils.Entry_Widget import Entry_Widget_Frame
 from settings import *
 
 
@@ -36,18 +36,7 @@ class Main(ctk.CTk):
         self.active_frame.place(relheight=RELHEIGHT,relwidth=RELWIDTH,anchor="nw")
 
    
-    def file_button_on_click(self):
-        on_CLick.file_button_on_click()
-        pass
-    def calc_button_on_click(self):
-        pass
-
-    def settings_button_on_click(self):
-        pass
-
-    def account_button_on_click(self):
-        pass
-
+    
 
 if __name__ == "__main__":
    app = Main(darkdetect.isDark())

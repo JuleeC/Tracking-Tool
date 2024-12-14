@@ -16,7 +16,9 @@ class Settings_Manager(ctk.CTkFrame):
                 ctk.CTkButton(self,text="aaaa").pack()
             case _:
                 pass
-        if on_open:
-            self.grid(row=1,column=1,sticky="nsew",pady=5)
+        if self.on_open:
+            print("Open")
+            pass    
         else:
-            self.grid(row=1,column=1,sticky="nsew",pady=5)
+            print("Closed")
+
