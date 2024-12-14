@@ -1,6 +1,7 @@
 import customtkinter as ctk
 import darkdetect
-from windows import Tracking_Window_Tabs,Login_Window
+from windows import Login_Window
+from __init__ import on_CLick 
 
 from Entry_Widget import Entry_Widget_Frame
 from settings import *
@@ -36,7 +37,7 @@ class Main(ctk.CTk):
 
    
     def file_button_on_click(self):
-        Tracking_Window_Tabs.file_button_on_click()
+        on_CLick.file_button_on_click()
         pass
     def calc_button_on_click(self):
         pass

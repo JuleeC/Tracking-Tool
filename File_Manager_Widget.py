@@ -1,7 +1,7 @@
 import customtkinter as ctk
-from PIL import Image,ImageTk
+from PIL import Image
 from settings import ENTRY_COLOR_UI,DARK_BLUE_UI
-from windows import Tracking_Window_Tabs
+from __init__ import on_CLick
 
 
 class File_Manager(ctk.CTkFrame):
@@ -20,8 +20,8 @@ class File_Manager(ctk.CTkFrame):
 
         account_image_open = Image.open("file_img/account_image.png").resize((50,50))
         account_image = ctk.CTkImage(light_image=account_image_open,dark_image=account_image_open)
-        ctk.CTkButton(self,text="",image=file_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=lambda:Tracking_Window_Tabs.file_button_on_click(self)).pack()
-        ctk.CTkButton(self,text="",image=calc_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=lambda:Tracking_Window_Tabs.calc_button_on_click(self)).pack()
-        ctk.CTkButton(self,text="",image=settings_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=lambda:Tracking_Window_Tabs.settings_button_on_click(self)).pack()
-        ctk.CTkButton(self,text="",image=account_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=lambda:Tracking_Window_Tabs.account_button_on_click(self)).pack()
+        ctk.CTkButton(self,text="",image=file_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=lambda:on_CLick.file_button_on_click(self)).pack()
+        ctk.CTkButton(self,text="",image=calc_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=lambda:on_CLick.calc_button_on_click(self)).pack()
+        ctk.CTkButton(self,text="",image=settings_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=lambda:on_CLick.settings_button_on_click(self)).pack()
+        ctk.CTkButton(self,text="",image=account_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=lambda:on_CLick.account_button_on_click(self)).pack()
         self.grid(row=1,column=0,sticky="nsew",padx=5)
