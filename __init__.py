@@ -17,8 +17,9 @@ class on_CLick():
         print("calc")
         Tracking_Window_Tabs.calc_button_on_click(self1)
 
-    def settings_button_on_click():
-        pass
+    def settings_button_on_click(self1):
+        print("settings")
+        Tracking_Window_Tabs.settings_button_on_click(self1)
 
     def account_button_on_click(self1):
         print("account")

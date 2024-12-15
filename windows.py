@@ -141,7 +141,7 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         Settings_Manager(self,layer="Calculator",fg_color=DARK_BLUE_UI["gray"]).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)
 
     def settings_button_on_click(self):
-        pass
+        Settings_Manager(self,layer="Settings",fg_color=DARK_BLUE_UI["gray"])
 
     def account_button_on_click(self):
         Settings_Manager(self,layer="Account",fg_color=DARK_BLUE_UI["gray"]).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)  

@@ -12,29 +12,41 @@ class Settings_Manager(ctk.CTkFrame):
         
         match self.layer:
             case "File":
-                ctk.CTkButton(self,text="aa").pack()
+                File(self)
             case "Calculator":
-                ctk.CTkButton(self,text="aaa").pack()
+                Calculator(self)
             case "Account":
                 Account(self)
-            case _:
-                pass
+            case "Settings":
+                print("sda")
+                Settings(self)
+                print("sd")
 
 
 class File():
     def __init__(self_ni,self):
         ctk.CTkButton(self,text="").pack()
-        print("aa")
+
+
         
 class Calculator():
     def __init__(self_ni,self):
         ctk.CTkButton(self,text="").pack()
-        print("aa")
+        
         
 class Account():
     def __init__(self_ni,self):
         ctk.CTkButton(self,text="").pack()
-        print("aa")
+
+class Settings(ctk.CTkToplevel):
+    def __init__(self,parent):
+        super().__init__(master=parent)
+        self.geometry("600x400")
+        self.title("Settings")
+        self.wm_attributes("-topmost",True)
+
+
+        
         
 
         

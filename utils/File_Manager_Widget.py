@@ -24,7 +24,7 @@ class File_Manager(ctk.CTkFrame):
         account_image = ctk.CTkImage(light_image=account_image_open,dark_image=account_image_open)
         ctk.CTkButton(self,text="",image=file_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=lambda:on_CLick.file_button_on_click(self1)).grid(row=0,column=0,sticky="nsew")
         ctk.CTkButton(self,text="",image=calc_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=lambda:on_CLick.calc_button_on_click(self1)).grid(row=1,column=0,sticky="nsew")
-        ctk.CTkButton(self,text="",image=settings_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=lambda:on_CLick.settings_button_on_click()).grid(row=2,column=0,sticky="nsew")
+        ctk.CTkButton(self,text="",image=settings_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=lambda:on_CLick.settings_button_on_click(self1)).grid(row=2,column=0,sticky="nsew")
         ctk.CTkButton(self,text="",image=account_image,width=140,fg_color=DARK_BLUE_UI["gray"],hover_color=DARK_BLUE_UI["border_gray"],height=80,command=lambda:on_CLick.account_button_on_click(self1)).grid(row=3,column=0,sticky="nsew")
         #ctk.CTkLabel(self,text="",fg_color="black").grid(row=0,column=1,sticky="nsew")
         #self.grid(row=1,row=0,column=0,sticky="nsew",padx=5)
