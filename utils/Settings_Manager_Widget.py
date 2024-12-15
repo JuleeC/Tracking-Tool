@@ -1,6 +1,10 @@
 import customtkinter as ctk
 from settings import DARK_BLUE_UI
+from settings import SETTINGS_COLOR_UI,DARK_BLUE_UI
 
+
+from utils.setting_widgets.color_settings import Color
+from utils.setting_widgets.tool_settings import Tools
 
 
 
@@ -40,12 +44,21 @@ class Account():
 
 class Settings(ctk.CTkToplevel):
     def __init__(self,parent):
-        super().__init__(master=parent)
-        self.geometry("600x400")
+        super().__init__(master=parent,fg_color=SETTINGS_COLOR_UI["gray"])
+
+        self.geometry("800x550")
         self.title("Settings")
         self.wm_attributes("-topmost",True)
+        self.resizable(False,False)
+        
 
-
+        #line
+        ctk.CTkFrame(self,fg_color=SETTINGS_COLOR_UI["border"],width=2,height=600).place(x=160,rely=0)
+        #---
+        #left side
+        ctk.CTkButton(self,text="Colors",border_color=SETTINGS_COLOR_UI["gray"],fg_color=SETTINGS_COLOR_UI["gray"],bg_color=SETTINGS_COLOR_UI["gray"],hover_color=SETTINGS_COLOR_UI["border"],command=lambda:Color(self)).place(x=5,y=5)
+        ctk.CTkButton(self,text="Tools",border_color=SETTINGS_COLOR_UI["gray"],fg_color=SETTINGS_COLOR_UI["gray"],bg_color=SETTINGS_COLOR_UI["gray"],hover_color=SETTINGS_COLOR_UI["border"],command=lambda:Tools(self)).place(x=5,y=35)
+        #ctk.CTkFrame(self,fg_color=SETTINGS_COLOR_UI["dark_gray"],width=640,height=550).place(x=161,y=0)
         
         
 
