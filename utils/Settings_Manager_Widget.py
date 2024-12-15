@@ -1,6 +1,9 @@
 import customtkinter as ctk
 from settings import DARK_BLUE_UI
 
+
+
+
 class Settings_Manager(ctk.CTkFrame):
     def __init__(self,parent,layer,fg_color):
         super().__init__(master=parent,corner_radius=2,fg_color=fg_color)
@@ -13,8 +16,25 @@ class Settings_Manager(ctk.CTkFrame):
             case "Calculator":
                 ctk.CTkButton(self,text="aaa").pack()
             case "Account":
-                ctk.CTkButton(self,text="aaaa").pack()
+                Account(self)
             case _:
                 pass
+
+
+class File():
+    def __init__(self_ni,self):
+        ctk.CTkButton(self,text="").pack()
+        print("aa")
+        
+class Calculator():
+    def __init__(self_ni,self):
+        ctk.CTkButton(self,text="").pack()
+        print("aa")
+        
+class Account():
+    def __init__(self_ni,self):
+        ctk.CTkButton(self,text="").pack()
+        print("aa")
         
 
+        
