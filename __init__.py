@@ -27,4 +27,4 @@ class on_CLick():
 from utils.File_Manager_Widget import File_Manager
 class File_Import():
     def open_file_manager(self,self1):
-        File_Manager(self,self1=self1,fg_color=DARK_BLUE_UI["gray"]).grid(row=1,column=0,sticky="nsew",padx=5,pady=10)
+        File_Manager(self,self1=self1,fg_color=DARK_BLUE_UI["gray"]).grid(row=1,column=0,sticky="nsew")

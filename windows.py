@@ -90,14 +90,14 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         
         TabView(self,fg_color = DARK_BLUE_UI["gray"])
         ctk.CTkButton(self,fg_color= DARK_BLUE_UI["gray"],corner_radius=25,command=self.go_login_window,image=arrow_back_image,text="").grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
-        ctk.CTkButton(self,text="Entry",fg_color=DARK_BLUE_UI["gray"],corner_radius=25,command=self.animate_entry,font=entry_button_font).grid(row=2,column=0,sticky="nsew",padx=4,pady=4,columnspan=3)
+        ctk.CTkButton(self,text="Entry",fg_color=DARK_BLUE_UI["gray"],command=self.animate_entry,font=entry_button_font).grid(row=2,column=0,sticky="nsew",padx=4,pady=4,columnspan=3)
         from __init__ import File_Import
         self1 = self
         File_Import.open_file_manager(self,self1)
 
         Settings_Manager(self,
                          fg_color=DARK_BLUE_UI["gray"],
-                         layer="File",on_open=True)
+                         layer="File").grid(row=1,column=1,sticky="nsew",pady=5,padx=5)      
         
         
     
@@ -135,16 +135,16 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
 
         
     def file_button_on_click(self):
-        Settings_Manager(self,layer="File",fg_color=DARK_BLUE_UI["gray"],on_open=False).grid(row=1,column=1,sticky="nsew",pady=5)      
+        Settings_Manager(self,layer="File",fg_color=DARK_BLUE_UI["gray"]).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)      
 
     def calc_button_on_click(self):
-        Settings_Manager(self,layer="Calculator",fg_color=DARK_BLUE_UI["gray"],on_open=False).grid(row=1,column=1,sticky="nsew",pady=5)
+        Settings_Manager(self,layer="Calculator",fg_color=DARK_BLUE_UI["gray"]).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)
 
     def settings_button_on_click(self):
         pass
 
     def account_button_on_click(self):
-        Settings_Manager(self,layer="Account",fg_color=DARK_BLUE_UI["gray"],on_open=False).grid(row=1,column=1,sticky="nsew",pady=5)  
+        Settings_Manager(self,layer="Account",fg_color=DARK_BLUE_UI["gray"]).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)  
 
         
       
