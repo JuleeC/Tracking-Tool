@@ -5,7 +5,8 @@ from settings import SETTINGS_COLOR_UI,DARK_BLUE_UI
 
 from utils.setting_widgets.color_settings import Color
 from utils.setting_widgets.tool_settings import Tools
-
+from utils.setting_widgets.aboutme_settings import AboutMe
+from utils.setting_widgets.preferences_settings import Preferences
 
 
 class Settings_Manager(ctk.CTkFrame):
@@ -58,6 +59,8 @@ class Settings(ctk.CTkToplevel):
         #left side
         ctk.CTkButton(self,text="Colors",border_color=SETTINGS_COLOR_UI["gray"],fg_color=SETTINGS_COLOR_UI["gray"],bg_color=SETTINGS_COLOR_UI["gray"],hover_color=SETTINGS_COLOR_UI["border"],command=lambda:Color(self)).place(x=5,y=5)
         ctk.CTkButton(self,text="Tools",border_color=SETTINGS_COLOR_UI["gray"],fg_color=SETTINGS_COLOR_UI["gray"],bg_color=SETTINGS_COLOR_UI["gray"],hover_color=SETTINGS_COLOR_UI["border"],command=lambda:Tools(self)).place(x=5,y=35)
+        ctk.CTkButton(self,text="Preferences",border_color=SETTINGS_COLOR_UI["gray"],fg_color=SETTINGS_COLOR_UI["gray"],bg_color=SETTINGS_COLOR_UI["gray"],hover_color=SETTINGS_COLOR_UI["border"],command=lambda:Preferences(self)).place(x=5,y=65)
+        ctk.CTkButton(self,text="About",border_color=SETTINGS_COLOR_UI["gray"],fg_color=SETTINGS_COLOR_UI["gray"],bg_color=SETTINGS_COLOR_UI["gray"],hover_color=SETTINGS_COLOR_UI["border"],command=lambda:AboutMe(self)).place(x=5,y=95)
         #ctk.CTkFrame(self,fg_color=SETTINGS_COLOR_UI["dark_gray"],width=640,height=550).place(x=161,y=0)
         
         

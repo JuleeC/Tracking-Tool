@@ -17,6 +17,12 @@ BLUE_UI = {"dark_blue":"#0E2954",
            "light_blue":"#2E8A99"}
 
 DARK_BLUE_UI = {
+    "black":"#1e1e1e",
+    "gray":"#262626",
+    "light_blue":"#00ADB5",
+    "border_gray":"#2d2d2d",
+}
+DARK_BLUE_UI_REAL = {
     "black":"#222831",
     "gray":"#343638",
     "light_blue":"#00ADB5",
