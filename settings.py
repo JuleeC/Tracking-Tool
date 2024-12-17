@@ -57,3 +57,31 @@ WEIGHT_ROW_SETTINGS_FRAME =1200
 RELHEIGHT = 1
 RELWIDTH = 1
 
+#Presets
+Black_Preset={
+    "1":"#222831",
+    "2":"#393E46",
+    "3":"#00ADB5",
+    "4":"#EEEEEE"
+}
+
+Green_Preset={
+    "1":"#FEF5ED",
+    "2":"#D3E4CD",
+    "3":"#ADC2A9",
+    "4":"#99A799"
+}
+
+Light_Blue_Preset={
+    "1":"#E3FDFD",
+    "2":"#CBF1F5",
+    "3":"#A6E3E9",
+    "4":"#71C9CE",
+}
+
+Pink_Preset={
+    "1":"#F9F5F6",
+    "2":"#F8E8EE",
+    "3":"#FDCEDF",
+    "4":"#F2BED1"
+}
