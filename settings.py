@@ -35,6 +35,8 @@ ENTRY_COLOR_UI = {
     "border_gray":"#565b5e",
 }
 
+
+
 SETTINGS_COLOR_UI = {
     "gray":"#262626",
     "dark_gray":"#1e1e1e",

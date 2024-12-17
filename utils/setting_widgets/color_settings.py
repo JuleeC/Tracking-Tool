@@ -57,7 +57,21 @@ class Presets(ctk.CTkFrame):
 
     # Function to display the selected radio option.
     def preset_change_event(self):
-        print(self.use_preset_var.get())
+        changed_preset_int = self.use_preset_var.get()
+        match(changed_preset_int):
+            case 1:
+                
+                DARK_BLUE_UI["black"] = Black_Preset["1"]
+                print(DARK_BLUE_UI["black"])
+                self.update()
+            case 2:
+                pass
+            case 3:
+                pass
+            case 4:
+                pass
+            case _:
+                pass
 
 
         
