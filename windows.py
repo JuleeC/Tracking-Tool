@@ -7,14 +7,14 @@ from PIL import Image
 from utils.TabView_Widgets import TabView
 from utils.Settings_Manager_Widget import *
 
-
+from colorchanger import ColorChanger
 
 
 
 
 class Login_Window(ctk.CTkFrame):
     def __init__(self,parent = None, controller = None):
-        super().__init__(master=parent,bg_color=GREEN_UI["green"],corner_radius=70,border_color=GREEN_UI["green"],border_width=10,fg_color=GREEN_UI["black"])
+        super().__init__(master=parent,bg_color=GREEN_UI["green"],corner_radius=70,border_color=GREEN_UI["green"],border_width=10,fg_color=BLACK)
         self.controller = controller
     
         main_window_font = ctk.CTkFont(family=FONT,size=MAIN_WINDOW_SIZE)
@@ -32,10 +32,10 @@ class Login_Window(ctk.CTkFrame):
         self.signing_string_jules_hummel = ctk.CTkLabel(self,text="jules hummel",font=jules_hummel_singature_font,text_color=GREEN_UI["light_green"]).place(relx=0.46,rely=0.313,anchor="center")
         self.tool_string = ctk.CTkLabel(self,text="Tool",font=tool_font,text_color=GREEN_UI["green"]).place(relx=0.59,rely=0.35,anchor="center")
 
-        github_button = ctk.CTkButton(self,text="GitHub",width=125,height=50,corner_radius=12,font=buttons_font,fg_color=GREEN_UI["green"],text_color=GREEN_UI["black"],command=self.open_github_func,hover_color=GREEN_UI["light_green"])
+        github_button = ctk.CTkButton(self,text="GitHub",width=125,height=50,corner_radius=12,font=buttons_font,fg_color=BLACK,text_color=BLACK,command=self.open_github_func,hover_color=GREEN_UI["light_green"])
         github_button.place(relx=0.35,rely=0.6)
 
-        tracking_tool_button = ctk.CTkButton(self,text="Tracking Tool",width=125,height=50,corner_radius=12,font=buttons_font,fg_color=GREEN_UI["green"],text_color=GREEN_UI["black"],command=self.open_tracking_tool,hover_color=GREEN_UI["light_green"])
+        tracking_tool_button = ctk.CTkButton(self,text="Tracking Tool",width=125,height=50,corner_radius=12,font=buttons_font,fg_color=GREEN_UI["green"],text_color=BLACK,command=self.open_tracking_tool,hover_color=GREEN_UI["light_green"])
         tracking_tool_button.place(relx=0.56,rely=0.6)
 
         self.pack(expand=True,fill="both")
@@ -55,8 +55,9 @@ class Login_Window(ctk.CTkFrame):
 
 class Tracking_Window_Tabs(ctk.CTkFrame):
     def __init__(self,parent=None,controller =None):
-        super().__init__(master=parent,fg_color=DARK_BLUE_UI["black"])
+        super().__init__(master=parent,fg_color=ColorChanger.changing_color(1,1))
         self.controller = controller
+        
         
        
         
@@ -88,15 +89,15 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         entry_button_font =("Cascadia Mono",20)
        
         
-        TabView(self,fg_color = DARK_BLUE_UI["gray"])
-        ctk.CTkButton(self,fg_color= DARK_BLUE_UI["gray"],corner_radius=25,command=self.go_login_window,image=arrow_back_image,text="").grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
-        ctk.CTkButton(self,text="Entry",fg_color=DARK_BLUE_UI["gray"],command=self.animate_entry,font=entry_button_font).grid(row=2,column=0,sticky="nsew",padx=4,pady=4,columnspan=3)
+        TabView(self,fg_color = ColorChanger.changing_color(1,2))
+        ctk.CTkButton(self,fg_color= ColorChanger.changing_color(1,2),corner_radius=25,command=self.go_login_window,image=arrow_back_image,text="").grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
+        ctk.CTkButton(self,text="Entry",fg_color=ColorChanger.changing_color(1,2),command=self.animate_entry,font=entry_button_font).grid(row=2,column=0,sticky="nsew",padx=4,pady=4,columnspan=3)
         from __init__ import File_Import
         self1 = self
         File_Import.open_file_manager(self,self1)
 
         Settings_Manager(self,
-                         fg_color=DARK_BLUE_UI["gray"],
+                         fg_color=ColorChanger.changing_color(1,2),
                          layer="File").grid(row=1,column=1,sticky="nsew",pady=5,padx=5)      
         
         
@@ -135,16 +136,16 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
 
         
     def file_button_on_click(self):
-        Settings_Manager(self,layer="File",fg_color=DARK_BLUE_UI["gray"]).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)      
+        Settings_Manager(self,layer="File",fg_color=ColorChanger.changing_color(1,2)).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)      
 
     def calc_button_on_click(self):
-        Settings_Manager(self,layer="Calculator",fg_color=DARK_BLUE_UI["gray"]).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)
+        Settings_Manager(self,layer="Calculator",fg_color=ColorChanger.changing_color(1,2)).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)
 
     def settings_button_on_click(self):
-        Settings_Manager(self,layer="Settings",fg_color=DARK_BLUE_UI["gray"])
+        Settings_Manager(self,layer="Settings",fg_color=ColorChanger.changing_color(1,2))
 
     def account_button_on_click(self):
-        Settings_Manager(self,layer="Account",fg_color=DARK_BLUE_UI["gray"]).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)  
+        Settings_Manager(self,layer="Account",fg_color=ColorChanger.changing_color(1,2)).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)  
 
         
       

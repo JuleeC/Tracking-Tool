@@ -4,11 +4,11 @@ from datetime import date
 
 from tkinter import ttk
 from settings import *
-
+from colorchanger import ColorChanger
 
 class Entry_Widget_Frame(ctk.CTkFrame):
     def __init__(self,parent,fg_color):
-        super().__init__(master=parent,fg_color=fg_color,border_width=20,border_color=DARK_BLUE_UI["black"])
+        super().__init__(master=parent,fg_color=fg_color,border_width=20,border_color=ColorChanger.changing_color(1,2))
         
         self.rowconfigure(0,weight=10,uniform="a")
         self.rowconfigure(1,weight=10,uniform="a")
@@ -84,7 +84,7 @@ class Entry_Tree(ttk.Treeview):
         tree_style.configure(
             "Treeview",
             background=ENTRY_COLOR_UI["gray"],       
-            foreground=GREEN_UI["white"],       
+            foreground=WHITE,       
             fieldbackground=ENTRY_COLOR_UI["gray"],       
             rowheight=25,
             bordercolor = ENTRY_COLOR_UI["border_gray"],   
@@ -98,7 +98,7 @@ class Entry_Tree(ttk.Treeview):
             "Treeview.Heading",
             fieldbackground=ENTRY_COLOR_UI["gray"],
             background=ENTRY_COLOR_UI["gray"],       
-            foreground=GREEN_UI["white"],       
+            foreground=WHITE,       
             font=(f"{FONT}", 12, "bold"),
             bordercolor = ENTRY_COLOR_UI["border_gray"],
             lightcolor=ENTRY_COLOR_UI["border_gray"],

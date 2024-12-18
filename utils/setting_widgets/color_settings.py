@@ -2,6 +2,7 @@ import customtkinter as ctk
 from settings import SETTINGS_COLOR_UI
 from PIL import Image
 from settings import *
+from colorchanger import ColorChanger
 
 class Presets(ctk.CTkFrame):
     def __init__(self,parent):
@@ -60,10 +61,10 @@ class Presets(ctk.CTkFrame):
         changed_preset_int = self.use_preset_var.get()
         match(changed_preset_int):
             case 1:
-                
-                DARK_BLUE_UI["black"] = Black_Preset["1"]
-                print(DARK_BLUE_UI["black"])
-                self.update()
+                pass
+                # print(DARK_BLUE_UI["black"])
+                #self.configure(fg_color=ColorChanger.changing_color(1))
+                # self.update()
             case 2:
                 pass
             case 3:
@@ -74,4 +75,4 @@ class Presets(ctk.CTkFrame):
                 pass
 
 
-        
+#Überall wo die Farbe geändert wird soll diese MEthode aufgerufen werden und der value soll sich in der preset_change_event ändern

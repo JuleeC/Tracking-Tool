@@ -1,11 +1,11 @@
 
 from settings import *
 from windows import Tracking_Window_Tabs
-
+from colorchanger import ColorChanger 
 
 class on_CLick():
     def open_file_manager(self):
-        File_Manager(self,fg_color=DARK_BLUE_UI["gray"])
+        File_Manager(self,fg_color=ColorChanger.changing_color(1,2))
 
         
     def file_button_on_click(self1):
@@ -28,4 +28,4 @@ class on_CLick():
 from utils.File_Manager_Widget import File_Manager
 class File_Import():
     def open_file_manager(self,self1):
-        File_Manager(self,self1=self1,fg_color=DARK_BLUE_UI["gray"]).grid(row=1,column=0,sticky="nsew")
+        File_Manager(self,self1=self1,fg_color=ColorChanger.changing_color(1,2)).grid(row=1,column=0,sticky="nsew")

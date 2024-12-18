@@ -5,11 +5,12 @@ from __init__ import on_CLick
 
 from utils.Entry_Widget import Entry_Widget_Frame
 from settings import *
+from colorchanger import ColorChanger
 
 
 class Main(ctk.CTk):
     def __init__(self,is_dark):
-        super().__init__(fg_color=(GREEN_UI["white"],GREEN_UI["black"]))
+        super().__init__(fg_color=(WHITE,BLACK))
         ctk.set_appearance_mode("dark") if is_dark else ctk.set_appearance_mode("light")
         self.geometry(f"{APP_SIZE[0]}x{APP_SIZE[1]}")
         self.resizable(False,False)
@@ -20,7 +21,7 @@ class Main(ctk.CTk):
 
         
        # self.creating_main_labels()
-        self.entry_widget_var = Entry_Widget_Frame(parent=self,fg_color=DARK_BLUE_UI["gray"])
+        self.entry_widget_var = Entry_Widget_Frame(parent=self,fg_color=ColorChanger.changing_color(1,2))
         self.active_frame = None
         self.show_page(Login_Window)
         

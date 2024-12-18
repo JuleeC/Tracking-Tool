@@ -1,6 +1,6 @@
 import customtkinter as ctk
-from settings import DARK_BLUE_UI
-from settings import SETTINGS_COLOR_UI,DARK_BLUE_UI
+
+from settings import SETTINGS_COLOR_UI
 
 
 from utils.setting_widgets.color_settings import Presets

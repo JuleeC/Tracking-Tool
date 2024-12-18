@@ -6,43 +6,28 @@ MAIN_WINDOW_SIZE = 80
 # GREEN = "#31511E"
 # LIGHT_GREEN = "#859F3D"
 # BLACK = "#1A1A19"
-# WHITE = "#EEEEEE"
-GREEN_UI = {"green":"#31511E",
-            "light_green":"#859F3D",
-            "black":"#1A1A19",
-            "white":"#EEEEEE"}
+# GREEN_UI = {"green":"#31511E",
+#             "light_green":"#859F3D",
+#             "black":"#1A1A19",
+#             "white":"#EEEEEE"}
 
-BLUE_UI = {"dark_blue":"#0E2954",
-           "blue":"#1F6E8C",
-           "light_blue":"#2E8A99"}
+# BLUE_UI = {"dark_blue":"#0E2954",
+#            "blue":"#1F6E8C",
+#            "light_blue":"#2E8A99"}
 
-DARK_BLUE_UI = {
-    "black":"#1e1e1e",
-    "gray":"#262626",
-    "light_blue":"#00ADB5",
-    "border_gray":"#2d2d2d",
-}
-DARK_BLUE_UI_REAL = {
-    "black":"#222831",
-    "gray":"#343638",
-    "light_blue":"#00ADB5",
-    "border_gray":"#565b5e",
-}
+# DARK_BLUE_UI = {
+#     "black":"#1e1e1e",
+#     "gray":"#262626",
+#     "light_blue":"#00ADB5",
+#     "border_gray":"#2d2d2d",
+# }
+# DARK_BLUE_UI_REAL = {
+#     "black":"#222831",
+#     "gray":"#343638",
+#     "light_blue":"#00ADB5",
+#     "border_gray":"#565b5e",
+# }
 
-ENTRY_COLOR_UI = {
-    "gray":"#1d1e1f",   #RRGGBB 
-    "blue":"#144870",
-    "border_gray":"#565b5e",
-}
-
-
-
-SETTINGS_COLOR_UI = {
-    "gray":"#262626",
-    "dark_gray":"#1e1e1e",
-    "border":"#2d2d2d"
-
-}
 
 
 FONT= "Cascadia Mono"
@@ -58,6 +43,35 @@ WEIGHT_ROW_SETTINGS_FRAME =1200
 #animate
 RELHEIGHT = 1
 RELWIDTH = 1
+
+
+#LOGIN WINDOW
+GREEN_UI = {"green":"#31511E",
+             "light_green":"#859F3D",
+             
+          }
+
+
+#COLORS/PRESETS
+
+WHITE = "#EEEEEE"
+BLACK = "#1A1A19"
+
+
+ENTRY_COLOR_UI = {
+    "gray":"#1d1e1f",   #RRGGBB 
+    "blue":"#144870",
+    "border_gray":"#565b5e",
+}
+
+
+
+SETTINGS_COLOR_UI = {
+    "gray":"#262626",
+    "dark_gray":"#1e1e1e",
+    "border":"#2d2d2d"
+
+}
 
 #Presets
 Black_Preset={
