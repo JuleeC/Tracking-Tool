@@ -90,8 +90,8 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
        
         
         TabView(self,fg_color = ColorChanger.changing_color(1,2))
-        ctk.CTkButton(self,fg_color= ColorChanger.changing_color(1,2),corner_radius=25,command=self.go_login_window,image=arrow_back_image,text="").grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
-        ctk.CTkButton(self,text="Entry",fg_color=ColorChanger.changing_color(1,2),command=self.animate_entry,font=entry_button_font).grid(row=2,column=0,sticky="nsew",padx=4,pady=4,columnspan=3)
+        ctk.CTkButton(self,fg_color= ColorChanger.changing_color(1,2),corner_radius=15,command=self.go_login_window,image=arrow_back_image,text="",hover_color=ColorChanger.changing_color(1,3)).grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
+        ctk.CTkButton(self,text="Entry",fg_color=ColorChanger.changing_color(1,2),command=self.animate_entry,font=entry_button_font,hover_color=ColorChanger.changing_color(1,3)).grid(row=2,column=0,sticky="nsew",padx=4,pady=4,columnspan=3)
         from __init__ import File_Import
         self1 = self
         File_Import.open_file_manager(self,self1)
