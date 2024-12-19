@@ -21,7 +21,8 @@ class Main(ctk.CTk):
 
         
        # self.creating_main_labels()
-        self.entry_widget_var = Entry_Widget_Frame(parent=self,fg_color="black")
+        from colorchanger import ColorChanger
+        self.entry_widget_var = Entry_Widget_Frame(parent=self,fg_color=ColorChanger.changing_color(value,1))
         self.active_frame = None
         self.show_page(Login_Window)
         

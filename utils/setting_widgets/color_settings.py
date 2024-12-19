@@ -55,6 +55,7 @@ class Presets(ctk.CTkFrame):
         self.pink_checkbox = ctk.CTkRadioButton(self, text="", variable=self.use_preset_var, value=4, command=self.preset_change_event)
         self.pink_checkbox.place(x=540, y=260)
 
+
     # Function to display the selected radio option.
     def preset_change_event(self):
         changed_preset_int = self.use_preset_var.get()
@@ -62,6 +63,7 @@ class Presets(ctk.CTkFrame):
         match(changed_preset_int):
             case 1:
                 value = 1
+
                 Transfer_Color.transfer_value_check(value)
             case 2:
                 value = 2
@@ -71,7 +73,9 @@ class Presets(ctk.CTkFrame):
                 Transfer_Color.transfer_value_check(value)
             case 4:
                 value = 4
+            
                 Transfer_Color.transfer_value_check(value)
+            
             case _:
                 pass
 
