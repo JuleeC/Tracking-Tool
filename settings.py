@@ -101,3 +101,7 @@ Pink_Preset={
     "3":"#FDCEDF",
     "4":"#F2BED1"
 }
+
+#layout value
+value = 1
+ow_value = value

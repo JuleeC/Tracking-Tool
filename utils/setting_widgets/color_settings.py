@@ -3,12 +3,13 @@ from settings import SETTINGS_COLOR_UI
 from PIL import Image
 from settings import *
 from colorchanger import ColorChanger
+from main import value,ow_value
 
 class Presets(ctk.CTkFrame):
     def __init__(self,parent):
         super().__init__(master=parent,fg_color=SETTINGS_COLOR_UI["dark_gray"],width=640,height=550)
         self.place(x=161,y=0)
-        
+        print(ow_value)
 
         preset_font = (FONT,30)
 
@@ -61,16 +62,18 @@ class Presets(ctk.CTkFrame):
         changed_preset_int = self.use_preset_var.get()
         match(changed_preset_int):
             case 1:
-                pass
-                # print(DARK_BLUE_UI["black"])
-                #self.configure(fg_color=ColorChanger.changing_color(1))
+                value = 1
+                print(ow_value)
                 # self.update()
             case 2:
-                pass
+                value = 2
+                print(ow_value)
             case 3:
-                pass
+                value = 3
+                print(value)
             case 4:
-                pass
+                value = 4
+                print(value)
             case _:
                 pass
 

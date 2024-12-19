@@ -16,12 +16,13 @@ class Main(ctk.CTk):
         self.resizable(False,False)
         self.title("Tracking-Tool")
         self.iconbitmap("images/greenbumbleinvestlogo.png")
-
+        value = 1
+        ow_value = value
         
 
         
        # self.creating_main_labels()
-        self.entry_widget_var = Entry_Widget_Frame(parent=self,fg_color=ColorChanger.changing_color(1,2))
+        self.entry_widget_var = Entry_Widget_Frame(parent=self,fg_color=ColorChanger.changing_color(value,2))
         self.active_frame = None
         self.show_page(Login_Window)
         
