@@ -1,4 +1,5 @@
 
+
 APP_SIZE = (1400,700)
 MAIN_WINDOW_SIZE = 80
 #COLORS
@@ -123,5 +124,8 @@ Light_Preset = {
 
 
 #layout value
+from customtkinter import IntVar
+
+global value 
 value = 1
-ow_value = value
+preset_var = IntVar(value=value)

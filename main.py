@@ -15,8 +15,7 @@ class Main(ctk.CTk):
         self.resizable(False,False)
         self.title("Tracking-Tool")
         self.iconbitmap("images/greenbumbleinvestlogo.png")
-        value = 1
-        ow_value = value
+       
         
 
         
@@ -40,6 +39,7 @@ class Main(ctk.CTk):
     def value_check(value):
         print(value)
         
+
    
     
 
@@ -50,10 +50,9 @@ if __name__ == "__main__":
 
 #Next Tasks:
 
-#Settings & File Manager:
-#Picture Design (Files,Calc,Settings) / DONE (SHIT IMAGES)
-#Visualizing it and design the buttons that are the pictures on
-#doing the settings manager frame for files,calc (settings not important for now)
+#do color presets 
+#first  step (save) the color presets
+
 
 
 #Chart Frame:
