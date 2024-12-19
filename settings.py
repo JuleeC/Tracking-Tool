@@ -102,6 +102,26 @@ Pink_Preset={
     "4":"#F2BED1"
 }
 
+#CAUSUAL
+Dark_Preset = {
+    "1":"#181716",
+    "2":"#2a2727",
+    "3":"#393433",
+    "4":"#FEF5ED",
+
+}
+
+Light_Preset = {
+    "1":"#F8F8FF",
+    "2":"#D3D3D3",
+    "3":"#A9A9A9",
+    "4":"#696969",
+
+
+
+}
+
+
 #layout value
 value = 1
 ow_value = value

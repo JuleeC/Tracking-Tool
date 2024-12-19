@@ -13,7 +13,7 @@ class Presets(ctk.CTkFrame):
         print(ow_value)
 
         preset_font = (FONT, 30)
-
+        or_just_font = (FONT_JULES_HUMMEL, 20,"bold")
         ctk.CTkLabel(self, text="Presets", font=preset_font).place(x=320, y=50, anchor="center")
         ctk.CTkFrame(self, width=580, height=2, fg_color=SETTINGS_COLOR_UI["border"]).place(x=30, y=80)
 
@@ -54,8 +54,25 @@ class Presets(ctk.CTkFrame):
 
         self.pink_checkbox = ctk.CTkRadioButton(self, text="", variable=self.use_preset_var, value=4, command=self.preset_change_event)
         self.pink_checkbox.place(x=540, y=260)
+#----------------------------------------------------------
+        ctk.CTkLabel(self, text="or just...", font=or_just_font).place(x=320, y=320, anchor="center")
 
+        ctk.CTkFrame(self, width=60, height=40, fg_color=Dark_Preset["1"], corner_radius=0).place(x=215, y=380) #150
+        ctk.CTkFrame(self, width=60, height=30, fg_color=Dark_Preset["2"], corner_radius=0).place(x=215, y=415) #185
+        ctk.CTkFrame(self, width=60, height=20, fg_color=Dark_Preset["3"], corner_radius=0).place(x=215, y=435) #215
+        ctk.CTkFrame(self, width=60, height=10, fg_color=Dark_Preset["4"], corner_radius=0).place(x=215, y=455) #235
 
+        ctk.CTkFrame(self, width=60, height=40, fg_color=Light_Preset["1"], corner_radius=0).place(x=380, y=380) #150
+        ctk.CTkFrame(self, width=60, height=30, fg_color=Light_Preset["2"], corner_radius=0).place(x=380, y=415) #185
+        ctk.CTkFrame(self, width=60, height=20, fg_color=Light_Preset["3"], corner_radius=0).place(x=380, y=435)   #215
+        ctk.CTkFrame(self, width=60, height=10, fg_color=Light_Preset["4"], corner_radius=0).place(x=380, y=455) #235
+        
+        self.dark_checkbox = ctk.CTkRadioButton(self, text="", variable=self.use_preset_var, value=5, command=self.preset_change_event)
+        self.dark_checkbox.place(x=235, y=480)
+
+        self.light_checkbox = ctk.CTkRadioButton(self, text="", variable=self.use_preset_var, value=6, command=self.preset_change_event)
+        self.light_checkbox.place(x=400, y=480)
+        
     # Function to display the selected radio option.
     def preset_change_event(self):
         changed_preset_int = self.use_preset_var.get()
@@ -63,7 +80,6 @@ class Presets(ctk.CTkFrame):
         match(changed_preset_int):
             case 1:
                 value = 1
-
                 Transfer_Color.transfer_value_check(value)
             case 2:
                 value = 2
@@ -73,9 +89,13 @@ class Presets(ctk.CTkFrame):
                 Transfer_Color.transfer_value_check(value)
             case 4:
                 value = 4
-            
                 Transfer_Color.transfer_value_check(value)
-            
+            case 5:
+                value = 5
+                Transfer_Color.transfer_value_check(value)
+            case 6:
+                value = 6
+                Transfer_Color.transfer_value_check(value)
             case _:
                 pass
 
