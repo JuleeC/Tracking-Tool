@@ -1,9 +1,9 @@
 import customtkinter as ctk
-from settings import SETTINGS_COLOR_UI
-from PIL import Image
 from settings import *
-from colorchanger import ColorChanger
-from main import value,ow_value
+from PIL import Image
+from __init__ import *
+#from main import value_check
+
 
 class Presets(ctk.CTkFrame):
     def __init__(self,parent):
@@ -57,23 +57,29 @@ class Presets(ctk.CTkFrame):
         self.pink_checkbox = ctk.CTkRadioButton(self, text="", variable= self.use_preset_var, value=4, command=self.preset_change_event)
         self.pink_checkbox.place(x=540,y=260)
 
+
     # Function to display the selected radio option.
     def preset_change_event(self):
         changed_preset_int = self.use_preset_var.get()
         match(changed_preset_int):
             case 1:
                 value = 1
-                print(ow_value)
+               
+                Transfer_Color.transfer_value_check(value)
+
                 # self.update()
             case 2:
                 value = 2
-                print(ow_value)
+               
+                Transfer_Color.transfer_value_check(value)
             case 3:
                 value = 3
-                print(value)
+                
+                Transfer_Color.transfer_value_check(value)
             case 4:
                 value = 4
-                print(value)
+              
+                Transfer_Color.transfer_value_check(value)
             case _:
                 pass
 
