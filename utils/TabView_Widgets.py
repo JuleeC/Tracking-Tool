@@ -1,3 +1,4 @@
+
 import customtkinter as ctk
 from settings import *
 from utils.Tab_Aktien_Frame import ChartFrame

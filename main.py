@@ -1,11 +1,10 @@
 import customtkinter as ctk
 import darkdetect
 from windows import Login_Window
-from __init__ import on_CLick 
+
 
 from utils.Entry_Widget import Entry_Widget_Frame
 from settings import *
-from colorchanger import ColorChanger
 
 
 class Main(ctk.CTk):
@@ -22,7 +21,7 @@ class Main(ctk.CTk):
 
         
        # self.creating_main_labels()
-        self.entry_widget_var = Entry_Widget_Frame(parent=self,fg_color=ColorChanger.changing_color(value,2))
+        self.entry_widget_var = Entry_Widget_Frame(parent=self,fg_color="black")
         self.active_frame = None
         self.show_page(Login_Window)
         
@@ -36,7 +35,10 @@ class Main(ctk.CTk):
             self.active_frame.destroy()
         self.active_frame = page_class(parent=self,controller=self)
         self.active_frame.place(relheight=RELHEIGHT,relwidth=RELWIDTH,anchor="nw")
-
+    
+    def value_check(value):
+        print(value)
+        
    
     
 
@@ -69,6 +71,3 @@ if __name__ == "__main__":
    
 
         
-
-
-

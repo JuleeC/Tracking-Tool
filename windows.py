@@ -32,7 +32,7 @@ class Login_Window(ctk.CTkFrame):
         self.signing_string_jules_hummel = ctk.CTkLabel(self,text="jules hummel",font=jules_hummel_singature_font,text_color=GREEN_UI["light_green"]).place(relx=0.46,rely=0.313,anchor="center")
         self.tool_string = ctk.CTkLabel(self,text="Tool",font=tool_font,text_color=GREEN_UI["green"]).place(relx=0.59,rely=0.35,anchor="center")
 
-        github_button = ctk.CTkButton(self,text="GitHub",width=125,height=50,corner_radius=12,font=buttons_font,fg_color=BLACK,text_color=BLACK,command=self.open_github_func,hover_color=GREEN_UI["light_green"])
+        github_button = ctk.CTkButton(self,text="GitHub",width=125,height=50,corner_radius=12,font=buttons_font,fg_color=GREEN_UI["green"],text_color=BLACK,command=self.open_github_func,hover_color=GREEN_UI["light_green"])
         github_button.place(relx=0.35,rely=0.6)
 
         tracking_tool_button = ctk.CTkButton(self,text="Tracking Tool",width=125,height=50,corner_radius=12,font=buttons_font,fg_color=GREEN_UI["green"],text_color=BLACK,command=self.open_tracking_tool,hover_color=GREEN_UI["light_green"])
