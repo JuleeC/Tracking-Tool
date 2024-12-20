@@ -126,6 +126,5 @@ Light_Preset = {
 #layout value
 from customtkinter import IntVar
 
-global value 
+
 value = 1
-preset_var = IntVar(value=value)

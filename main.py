@@ -39,7 +39,7 @@ class Main(ctk.CTk):
     def value_check(value):
         print(value)
         
-
+    print(f"VAL:{value}")
    
     
 

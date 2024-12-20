@@ -43,6 +43,7 @@ class Transfer_Color():
 
     def transfer_value_check(value):
         from main import Main
+        
         self_value=value
         Main.value_check(self_value)
    
