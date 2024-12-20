@@ -55,7 +55,9 @@ class Login_Window(ctk.CTkFrame):
 
 class Tracking_Window_Tabs(ctk.CTkFrame):
     def __init__(self,parent=None,controller =None):
-        super().__init__(master=parent,fg_color=ColorChanger.changing_color(value,1))
+        from main import value_ow
+        
+        super().__init__(master=parent,fg_color=ColorChanger.changing_color(value_ow(),1))
         self.controller = controller
         
         
@@ -89,15 +91,15 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
         entry_button_font =("Cascadia Mono",20)
        
         
-        TabView(self,fg_color = ColorChanger.changing_color(value,2))
-        ctk.CTkButton(self,fg_color= ColorChanger.changing_color(value,2),corner_radius=15,command=self.go_login_window,image=arrow_back_image,text="",hover_color=ColorChanger.changing_color(1,3)).grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
-        ctk.CTkButton(self,text="Entry",fg_color=ColorChanger.changing_color(value,2),command=self.animate_entry,font=entry_button_font,hover_color=ColorChanger.changing_color(1,3)).grid(row=2,column=0,sticky="nsew",padx=4,pady=4,columnspan=3)
+        TabView(self,fg_color = ColorChanger.changing_color(value_ow(),2))
+        ctk.CTkButton(self,fg_color= ColorChanger.changing_color(value_ow(),2),corner_radius=15,command=self.go_login_window,image=arrow_back_image,text="",hover_color=ColorChanger.changing_color(1,3)).grid(row=0,column=0,sticky="nsew",padx=4,pady=4)
+        ctk.CTkButton(self,text="Entry",fg_color=ColorChanger.changing_color(value_ow(),2),command=self.animate_entry,font=entry_button_font,hover_color=ColorChanger.changing_color(1,3)).grid(row=2,column=0,sticky="nsew",padx=4,pady=4,columnspan=3)
         from __init__ import File_Import
         self1 = self
         File_Import.open_file_manager(self,self1)
 
         Settings_Manager(self,
-                         fg_color=ColorChanger.changing_color(value,2),
+                         fg_color=ColorChanger.changing_color(value_ow(),2),
                          layer="File").grid(row=1,column=1,sticky="nsew",pady=5,padx=5)      
         
         
@@ -136,16 +138,20 @@ class Tracking_Window_Tabs(ctk.CTkFrame):
 
         
     def file_button_on_click(self):
-        Settings_Manager(self,layer="File",fg_color=ColorChanger.changing_color(value,2)).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)      
+        from main import value_ow
+        Settings_Manager(self,layer="File",fg_color=ColorChanger.changing_color(value_ow(),2)).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)      
 
     def calc_button_on_click(self):
-        Settings_Manager(self,layer="Calculator",fg_color=ColorChanger.changing_color(value,2)).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)
+        from main import value_ow
+        Settings_Manager(self,layer="Calculator",fg_color=ColorChanger.changing_color(value_ow(),2)).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)
 
     def settings_button_on_click(self):
-        Settings_Manager(self,layer="Settings",fg_color=ColorChanger.changing_color(value,2))
+        from main import value_ow
+        Settings_Manager(self,layer="Settings",fg_color=ColorChanger.changing_color(value_ow(),2))
 
     def account_button_on_click(self):
-        Settings_Manager(self,layer="Account",fg_color=ColorChanger.changing_color(value,2)).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)  
+        from main import value_ow
+        Settings_Manager(self,layer="Account",fg_color=ColorChanger.changing_color(value_ow(),2)).grid(row=1,column=1,sticky="nsew",pady=5,padx=5)  
 
         
       

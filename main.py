@@ -1,12 +1,13 @@
 import customtkinter as ctk
 import darkdetect
-from windows import Login_Window
+
 
 
 from utils.Entry_Widget import Entry_Widget_Frame
-from settings import *
+from settings import RELHEIGHT,RELWIDTH,WHITE,BLACK,APP_SIZE
 
-
+global value
+value = 1
 class Main(ctk.CTk):
     def __init__(self,is_dark):
         super().__init__(fg_color=(WHITE,BLACK))
@@ -15,12 +16,14 @@ class Main(ctk.CTk):
         self.resizable(False,False)
         self.title("Tracking-Tool")
         self.iconbitmap("images/greenbumbleinvestlogo.png")
-       
+        
+        
         
 
         
        # self.creating_main_labels()
         from colorchanger import ColorChanger
+        from windows import Login_Window
         self.entry_widget_var = Entry_Widget_Frame(parent=self,fg_color=ColorChanger.changing_color(value,1))
         self.active_frame = None
         self.show_page(Login_Window)
@@ -28,7 +31,7 @@ class Main(ctk.CTk):
         
         
         self.entry_widget_var.pack(expand=True,fill="both")
-        
+        print(f"VAL:{value}")
        
     def show_page(self,page_class):
         if self.active_frame:
@@ -38,8 +41,11 @@ class Main(ctk.CTk):
     
     def value_check(value):
         print(value)
+
+def value_ow():
+    return value
         
-    print(f"VAL:{value}")
+    
    
     
 
