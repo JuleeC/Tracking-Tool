@@ -65,8 +65,13 @@ class Settings(ctk.CTkToplevel):
         ctk.CTkButton(self,text="Tools",border_color=SETTINGS_COLOR_UI["gray"],fg_color=SETTINGS_COLOR_UI["gray"],bg_color=SETTINGS_COLOR_UI["gray"],hover_color=SETTINGS_COLOR_UI["border"],command=lambda:Tools(self)).place(x=5,y=35)
         ctk.CTkButton(self,text="Preferences",border_color=SETTINGS_COLOR_UI["gray"],fg_color=SETTINGS_COLOR_UI["gray"],bg_color=SETTINGS_COLOR_UI["gray"],hover_color=SETTINGS_COLOR_UI["border"],command=lambda:Preferences(self)).place(x=5,y=65)
         ctk.CTkButton(self,text="About Me",border_color=SETTINGS_COLOR_UI["gray"],fg_color=SETTINGS_COLOR_UI["gray"],bg_color=SETTINGS_COLOR_UI["gray"],hover_color=SETTINGS_COLOR_UI["border"],command=lambda:AboutMe(self)).place(x=5,y=95)
-        from main import value_ow
-        ctk.CTkButton(self,text="Debug",border_color=SETTINGS_COLOR_UI["gray"],fg_color=SETTINGS_COLOR_UI["gray"],bg_color=SETTINGS_COLOR_UI["gray"],hover_color=SETTINGS_COLOR_UI["border"],command=lambda:print(f"ooo::{value_ow()}")).place(x=5,y=125)
+        
+        
+            
+        from utils.setting_widgets.color_settings import Presets
+        ctk.CTkButton(self,text="Debug",border_color=SETTINGS_COLOR_UI["gray"],fg_color=SETTINGS_COLOR_UI["gray"],bg_color=SETTINGS_COLOR_UI["gray"],hover_color=SETTINGS_COLOR_UI["border"],command=lambda:print(f"ooo::{Presets.tk_int_method()}")).place(x=5,y=125)
+       
+        
         #ctk.CTkFrame(self,fg_color=SETTINGS_COLOR_UI["dark_gray"],width=640,height=550).place(x=161,y=0)
         
         

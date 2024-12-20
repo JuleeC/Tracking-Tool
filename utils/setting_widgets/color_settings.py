@@ -1,7 +1,8 @@
 import customtkinter as ctk
 from settings import *
 
-#from main import value_check
+
+
 
 
 class Presets(ctk.CTkFrame):
@@ -42,7 +43,15 @@ class Presets(ctk.CTkFrame):
         ctk.CTkFrame(self, width=60, height=10, fg_color=Pink_Preset["4"], corner_radius=0).place(x=520, y=235)
         
        
+        
         self.tk_value = ctk.IntVar(value=value)
+        
+        
+        global tk_int_value
+        tk_int_value = self.tk_value.get()
+        #from main import value_check
+        
+
 
         self.black_white_blue_checkbox = ctk.CTkRadioButton(self, text="", variable=self.tk_value,value=1, command=self.preset_change_event)
         self.black_white_blue_checkbox.place(x=90, y=260)
@@ -74,6 +83,9 @@ class Presets(ctk.CTkFrame):
         self.light_checkbox = ctk.CTkRadioButton(self, text="", variable=self.tk_value, value=6, command=self.preset_change_event)
         self.light_checkbox.place(x=400, y=480)
         
+        self.update()
+    def tk_int_method():
+            return tk_int_value 
     # Function to display the selected radio option.
     def preset_change_event(self):
        
@@ -106,5 +118,7 @@ class Presets(ctk.CTkFrame):
                 Transfer_Color.transfer_value_check(value)
             case _:
                 pass
+            
 
+   
 #Überall wo die Farbe geändert wird soll diese MEthode aufgerufen werden und der value soll sich in der preset_change_event ändern
