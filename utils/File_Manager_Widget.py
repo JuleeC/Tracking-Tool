@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from PIL import Image
-from settings import ENTRY_COLOR_UI
+
 from __init__ import on_CLick
 from colorchanger import ColorChanger
 

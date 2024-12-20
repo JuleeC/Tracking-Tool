@@ -1,5 +1,5 @@
 import customtkinter as ctk
-from settings import SETTINGS_COLOR_UI
+
 
 
 class Preferences(ctk.CTkFrame):
