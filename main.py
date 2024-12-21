@@ -1,5 +1,5 @@
 import customtkinter as ctk
-import darkdetect
+
 
 from settings import Black_Preset,Pink_Preset,Green_Preset,Light_Blue_Preset
 
@@ -10,9 +10,9 @@ global value
 
 value = 1
 class Main(ctk.CTk):
-    def __init__(self,is_dark):
+    def __init__(self):
         super().__init__()
-        ctk.set_appearance_mode("dark") if is_dark else ctk.set_appearance_mode("light")
+        ctk.set_appearance_mode("dark")
         self.geometry(f"{APP_SIZE[0]}x{APP_SIZE[1]}")
         self.resizable(False,False)
         self.title("Tracking-DDDTool")
@@ -64,7 +64,7 @@ def value_ow():
     
 
 if __name__ == "__main__":
-   app = Main(darkdetect.isDark())
+   app = Main()
    app.mainloop()
 
 
