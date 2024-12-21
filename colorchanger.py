@@ -1,7 +1,7 @@
 from settings import *
 
 class ColorChanger():
-    def __init__():
+    def __init__(self):
         pass
         
     def changing_color(value,layout_format):

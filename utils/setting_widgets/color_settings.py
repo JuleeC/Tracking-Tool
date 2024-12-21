@@ -90,10 +90,15 @@ class Presets(ctk.CTkFrame):
     def preset_change_event(self):
        
         from __init__ import Transfer_Color
+        from main import Main
         global value
+        
         match(self.tk_value.get()):
             case 1:
-               
+                #ERRROR TO FIX
+                main = Main(True)
+                main.black_preset_change()
+                main.set_fg_color("red") 
                 value = 1
                 Transfer_Color.transfer_value_check(value)
             case 2:

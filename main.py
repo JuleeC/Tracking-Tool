@@ -1,21 +1,23 @@
 import customtkinter as ctk
 import darkdetect
 
-
+from settings import Black_Preset,Pink_Preset,Green_Preset,Light_Blue_Preset
 
 from utils.Entry_Widget import Entry_Widget_Frame
 from settings import RELHEIGHT,RELWIDTH,WHITE,BLACK,APP_SIZE
 
 global value
+
 value = 1
 class Main(ctk.CTk):
     def __init__(self,is_dark):
-        super().__init__(fg_color=(WHITE,BLACK))
+        super().__init__()
         ctk.set_appearance_mode("dark") if is_dark else ctk.set_appearance_mode("light")
         self.geometry(f"{APP_SIZE[0]}x{APP_SIZE[1]}")
         self.resizable(False,False)
-        self.title("Tracking-Tool")
+        self.title("Tracking-DDDTool")
         self.iconbitmap("images/greenbumbleinvestlogo.png")
+        
         
         
         
@@ -41,7 +43,19 @@ class Main(ctk.CTk):
     
     def value_check(value):
         print(value)
+#-------------------------------------------------
+#ERROR TO FIX:
+    def black_preset_change(self):
+        self.configure(fg_color = Pink_Preset["1"])
+        self.configure(title="dsa")
+        self.update()
 
+
+    def set_fg_color(self, color):
+        self.fg_color = color  
+        self.title= "dsa"  
+        print("dsadASDDS")
+#-------------------------------------------------
 def value_ow():
     return value
         
@@ -74,6 +88,5 @@ if __name__ == "__main__":
 
 
 
-   
 
-        
+
