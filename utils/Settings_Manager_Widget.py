@@ -3,7 +3,7 @@ import customtkinter as ctk
 from settings import SETTINGS_COLOR_UI
 from colorchanger import ColorChanger
 
-from utils.setting_widgets.color_settings import Presets
+
 
 from utils.setting_widgets.tool_settings import Tools
 from utils.setting_widgets.aboutme_settings import AboutMe
@@ -32,7 +32,8 @@ class Settings_Manager(ctk.CTkFrame):
 
 class File():
     def __init__(self_ni,self):
-        ctk.CTkButton(self,text="sfdfd",hover_color=ColorChanger.changing_color(1,3)).pack()
+        
+        ctk.CTkButton(self,text="sfdfd",hover_color=ColorChanger.changing_color(1,3),command=lambda:self.update()).pack()
 
 
         

@@ -91,16 +91,23 @@ class Presets(ctk.CTkFrame):
        
         from __init__ import Transfer_Color
         from main import Main
+        from windows import Tracking_Window_Tabs
+        from utils.Settings_Manager_Widget import Settings_Manager
         global value
-        
+        main = Main()
+        tracking_window = Tracking_Window_Tabs(self)
+        file = Settings_Manager(self, )
         match(self.tk_value.get()):
             case 1:
                 #ERRROR TO FIX
-                main = Main(True)
-                main.black_preset_change()
-                main.set_fg_color("red") 
+                #dont know what to do
+                main.configure(fg_color="red")
+                tracking_window.configure(fg_color="red")
+                file.configure(fg_color="red")
                 value = 1
                 Transfer_Color.transfer_value_check(value)
+                tracking_window.update()
+
             case 2:
                 
                 value = 2
@@ -124,6 +131,9 @@ class Presets(ctk.CTkFrame):
             case _:
                 pass
             
+class PresetUpdate():
+    def __init__():
+        pass
 
-   
+
 #Überall wo die Farbe geändert wird soll diese MEthode aufgerufen werden und der value soll sich in der preset_change_event ändern
