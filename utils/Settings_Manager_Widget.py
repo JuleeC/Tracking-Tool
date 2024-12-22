@@ -32,8 +32,11 @@ class Settings_Manager(ctk.CTkFrame):
 
 class File():
     def __init__(self_ni,self):
-        
-        ctk.CTkButton(self,text="sfdfd",hover_color=ColorChanger.changing_color(1,3),command=lambda:self.update()).pack()
+        from settings import FONT_SETTINGS
+        settings_font = (FONT_SETTINGS, 15)
+        ctk.CTkLabel(self,text="File",font=settings_font).place(anchor="nw",relx=0.05,rely=0.001)
+        ctk.CTkFrame(self, width=50, height=2, fg_color=SETTINGS_COLOR_UI["border"]).place(relx=0, rely=0.05)
+        ctk.CTkButton(self,text="sfdfd",hover_color=ColorChanger.changing_color(1,3),command=lambda:self.update())
 
 
         

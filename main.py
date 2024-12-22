@@ -19,10 +19,10 @@ class Main(ctk.CTk):
         self.iconbitmap("images/greenbumbleinvestlogo.png")
         
         
-        
+        print(self)
         
 
-        
+       
        # self.creating_main_labels()
         from colorchanger import ColorChanger
         from windows import Login_Window
@@ -54,7 +54,9 @@ class Main(ctk.CTk):
     def set_fg_color(self, color):
         self.fg_color = color  
         self.title= "dsa"  
-        print("dsadASDDS")
+        print("dsadASDD")
+
+    
 #-------------------------------------------------
 def value_ow():
     return value

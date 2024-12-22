@@ -93,20 +93,24 @@ class Presets(ctk.CTkFrame):
         from main import Main
         from windows import Tracking_Window_Tabs
         from utils.Settings_Manager_Widget import Settings_Manager
+        from colorchanger import ColorChanger
         global value
         main = Main()
-        tracking_window = Tracking_Window_Tabs(self)
-        file = Settings_Manager(self, )
+        tracking_window = Tracking_Window_Tabs()
+        file = Settings_Manager(self,0,ColorChanger.changing_color(value,1))
         match(self.tk_value.get()):
             case 1:
                 #ERRROR TO FIX
                 #dont know what to do
-                main.configure(fg_color="red")
-                tracking_window.configure(fg_color="red")
-                file.configure(fg_color="red")
+                
+                main.configure(fg_color="blue")
+                main.update()
+                main.destroy()
+                
+                
                 value = 1
                 Transfer_Color.transfer_value_check(value)
-                tracking_window.update()
+                
 
             case 2:
                 
